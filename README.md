@@ -71,6 +71,7 @@ B. 1. LA CHARTE GRAPHIQUE :
 Couleur : 
 Jaune : représente le bonheur et apporte l’optimisme
 Bleu : augmente la productivité. Génère un sentiment de sécurité et de confiance
+
 B. 2. LE LOGO :
 
 ![image](https://user-images.githubusercontent.com/66943287/199099688-a48d4773-816c-4b2f-9f04-3575bfc37437.png)
