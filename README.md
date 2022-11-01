@@ -73,9 +73,9 @@ Jaune : représente le bonheur et apporte l’optimisme
 Bleu : augmente la productivité. Génère un sentiment de sécurité et de confiance
 B. 2. LE LOGO :
 
-
 ![image](https://user-images.githubusercontent.com/66943287/199099688-a48d4773-816c-4b2f-9f04-3575bfc37437.png)
-B. 3. LE MAQUETTAGE :
+
+ B. 3. LE MAQUETTAGE :
 
  ![Capture d'écran_20221101_185041](https://user-images.githubusercontent.com/64777337/199305342-00341ee6-8b0f-4810-bacc-3404598779d5.png)
  ![Capture d'écran_20221101_185106](https://user-images.githubusercontent.com/64777337/199305386-7ab5418c-e678-4f8d-8c1b-7e5c4aeae255.png)
