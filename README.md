@@ -15,6 +15,7 @@ B. Graphisme et ergonomie
 B.1. La charte graphique
 B.2. Le logo 
 B. 3. Maquettage
+B.4. Diagramme de cas d’utilisation 
 
 
 
@@ -88,4 +89,8 @@ Lien Maquette (figma) :
 
 https://www.figma.com/file/x3rsJA9jfTWNymWg0FBRxP/Maquette?node-id=42%3A3
 
+B. 3. DIAGRAMME DE CAS D'UTILISATION :
+
+
+![Untitled (1)](https://user-images.githubusercontent.com/64777337/200172515-64338aac-3643-49de-8e3f-d70d86eed714.png)
 
