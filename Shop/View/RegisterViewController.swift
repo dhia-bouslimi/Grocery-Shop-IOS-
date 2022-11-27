@@ -8,7 +8,7 @@
 import UIKit
 
 class RegisterViewController: UIViewController,UITextFieldDelegate {
-
+    
     @IBOutlet weak var lastNametxt: UITextField!
     @IBOutlet weak var gendertxt: UITextField!
     @IBOutlet weak var agetxt: UITextField!
@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         passwordtxt.delegate = self
         Emailtxt.delegate = self
         userNametxt.delegate = self
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -38,10 +38,10 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     
     
-
+    
     @IBAction func signupbtn(_ sender: Any) {
         let isEmailAddressValid = isValidEmailAddress(emailAddressString: Emailtxt.text!)
-
+        
         if(
             (Emailtxt.text != nil) != isEmailAddressValid){
             let alert = UIAlertController(title: "Your Email IS Not Valid", message: "check your inputs", preferredStyle: .alert)
@@ -50,10 +50,11 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
             
         }
         
-      else  if(userNametxt.text != "" && lastNametxt.text != "" && Emailtxt.text != "" && passwordtxt.text != "" && agetxt.text != "" && gendertxt.text != "")
+        else  if(userNametxt.text != "" && lastNametxt.text != "" && Emailtxt.text != "" && passwordtxt.text != "" && agetxt.text != "" && gendertxt.text != "")
         {
-         let parameters = ["firstName" : userNametxt.text! ,"lastName" : lastNametxt.text! , "email" : Emailtxt.text! , "password" : passwordtxt.text! , "age" : agetxt.text! , "gender" : gendertxt.text!]  as [String:Any]
-         
+            
+            let parameters = ["firstName" : userNametxt.text! ,"lastName" : lastNametxt.text! , "email" : Emailtxt.text! , "password" : passwordtxt.text! , "age" : agetxt.text! , "gender" : gendertxt.text!]  as [String:Any]
+            
             guard let url = URL(string: baseURL+"users/signup") else { return }
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -68,24 +69,26 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                         status = httpResponse!.statusCode
                         self.SuccessMessage = try JSONDecoder().decode(Message.self, from: data!)
                         print(self.SuccessMessage)
+                        //self.performSegue(withIdentifier: "signupToHome", sender: sender)
                     } catch {
                         print("parse json error")
                     }
                     DispatchQueue.main.async {
-                       if status == 200 {
-                       self.performSegue(withIdentifier: "signupToHome", sender: sender)
-
-                        
+                        if status == 200 {
+                             self.performSegue(withIdentifier: "SignupToLogin", sender: sender)
+                          //  self.performSegue(withIdentifier: "signupToProfil", sender: self)
+                            print("ok")
                         }
                         
                     }
                 }
+                
+
             }.resume()
-
+            
         }
-    }
-    
 
+    }
 }
 
 

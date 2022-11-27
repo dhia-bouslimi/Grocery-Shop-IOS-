@@ -53,34 +53,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                     self.present(alert, animated: true)
                 }else{
-                  
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-             
+         
                     print("try to connect")
                     let parameters = ["email" : emailValue, "password" : passwordValue]
                     guard let url = URL(string: baseURL+"/users/signIn") else { return }
@@ -122,9 +95,12 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                                     self.present(alert, animated: true)
                                 }else if status == 200 {
                                     
-                                    print("++++++++++++++++++++++name++++++++++++++++++"+self.connectedUser.firstName!)
-                                    print(self.connectedUser)
+                                    print("welcome +++"+self.connectedUser.lastName!+"+++")
+                                  //  print(self.connectedUser)
                                    self.saveConnectedUser()
+                                    
+                                    self.performSegue(withIdentifier: "loginToHome", sender: sender)
+
                                 }
                                 
                             }
@@ -158,6 +134,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         object.setValue(self.connectedUser.age, forKey: "age")
         object.setValue(self.connectedUser.code, forKey: "code")
         object.setValue(self.connectedUser.codeAdmin, forKey: "codeAdmin")
+        object.setValue(self.connectedUser.photo, forKey: "photo")
+
                 
         
         do {

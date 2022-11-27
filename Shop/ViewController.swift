@@ -14,6 +14,11 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func btnstarted(_ sender: Any) {
+        
+        //self.performSegue(withIdentifier: "Page1ToAuth", sender: sender)
+
+    }
     
 }
 

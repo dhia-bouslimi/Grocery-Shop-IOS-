@@ -13,7 +13,8 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var code3: UITextField!
     @IBOutlet weak var code4: UITextField!
       var maxLen:Int = 1;
-    
+    public var SuccessMessage:Message = Message(message: "")
+
       var codetyped : String = ""
       var code :String?
       var Lastcode :String?
@@ -34,7 +35,7 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
                //  Doesn't exist
            } else {
                let currentLevel = preferences.string(forKey: currentLevelKey)
-               print("rrrrrrrrrrrr " , currentLevel)
+               print(currentLevel)
                Lastcode =  currentLevel
                print(Email)
            }
@@ -89,10 +90,15 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
          }
   else if (Lastcode == codetyped)
   {
-      print("waaaaaaaa")
+     
       performSegue(withIdentifier: "forget3", sender: sender)
 
   }
+        else if (Lastcode != codetyped){
+            let alert = UIAlertController(title: " code incorrect", message: "please fill your inputs", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }
          
      }
      
@@ -101,6 +107,7 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
            let des = segue.destination as! Forget3ViewController
         
            des.Email = Email
+             
      }
      
      

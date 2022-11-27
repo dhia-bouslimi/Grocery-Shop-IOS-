@@ -21,6 +21,15 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
+    
+    
+    
+    @IBAction func btnRetourToLogin(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "retourLogin", sender: sender)
+    }
+    
+    
 
     @IBAction func btnforget(_ sender: Any) {
         // create the alert
@@ -53,7 +62,7 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
                          }
                          DispatchQueue.main.async {
                          //   if status == 200 {
-                             print("aaaaaaaaaaaa")
+                           
                              print("waaaaaaaaa" , self.codecode.code )
                                 self.performSegue(withIdentifier: "forget2", sender: sender)
                                 
@@ -76,6 +85,7 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
           let des = segue.destination as! Forget2ViewController
        
           des.Email = forgettxt.text
+            
     }
 
 }

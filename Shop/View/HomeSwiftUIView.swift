@@ -24,7 +24,8 @@ struct HomeSwiftUIView: View {
                 case 0:
                     NavigationView{
                         VStack{
-                            Text("First Screen")
+                            
+                            storyboardviewstock().edgesIgnoringSafeArea(.all)
                         }
                         .navigationTitle("Home")
                     }
@@ -32,16 +33,17 @@ struct HomeSwiftUIView: View {
                     NavigationView{
                         VStack{
                            // Text("First Screen")
-                            storyboardview().edgesIgnoringSafeArea(.all)
+                           // storyboardview().edgesIgnoringSafeArea(.all)
                         }
                         .navigationTitle("Gift")
                     }
                 case 2:
                     NavigationView{
                         VStack{
-                            Text("First Screen")
+                            
+                            storyboardview().edgesIgnoringSafeArea(.all)
                         }
-                        .navigationTitle("Add")
+                       
                     }
                 case 3:
                     NavigationView{
@@ -76,7 +78,7 @@ struct HomeSwiftUIView: View {
                                 .font(.system(size: 25,
                                               weight: .regular,
                                               design: .default ))
-                                .foregroundColor(.white)
+                                .foregroundColor(.green)
                                 .frame(width: 60, height: 60)
                                 .background(Color.blue )
                                 .cornerRadius(30 )
@@ -119,7 +121,7 @@ struct HomeSwiftUIView_Previews: PreviewProvider {
 struct storyboardview: UIViewControllerRepresentable{
     func makeUIViewController(context: Context) -> some UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let controller = storyboard.instantiateViewController(withIdentifier: "AuthViewController")
+        let controller = storyboard.instantiateViewController(withIdentifier: "ListFournisseurViewController")
         return controller
     }
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
@@ -133,6 +135,17 @@ struct storyboardviewprofil: UIViewControllerRepresentable{
     func makeUIViewController(context: Context) -> some UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let controller = storyboard.instantiateViewController(withIdentifier: "ProfilViewController")
+        return controller
+    }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+}
+
+struct storyboardviewstock: UIViewControllerRepresentable{
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(withIdentifier: "StockViewController")
         return controller
     }
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {

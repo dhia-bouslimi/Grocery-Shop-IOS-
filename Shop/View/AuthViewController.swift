@@ -21,33 +21,35 @@ class AuthViewController: UIViewController {
         if isLoggedIn() {
                     // Show the ViewController with the logged in user
                 }else{
+
                     // Show the Home ViewController
                 }
             }
     
-    @IBAction func btnFacebook(_ sender: UIButton) {
-        self.loginButtonClicked()
+    @IBAction func btnFacebook(_ sender: Any) {
+       // self.loginButtonClicked()
+        let loginManager = LoginManager()
+        loginManager.logIn(permissions: ["public_profile", "email"], from: self, handler: { result, error in
+            if error != nil {
+                print("ERROR: Trying to get login results")
+            } else if result?.isCancelled != nil {
+                print("The token is \(result?.token?.tokenString ?? "")")
+                if result?.token?.tokenString != nil {
+
+                    print("Logged in")
+                    self.getUserProfile(token: result?.token, userId: result?.token?.userID)
+                    self.performSegue(withIdentifier: "AuthToHome", sender: sender)
+                } else {
+                    print("Cancelled")
+                }
+            }
+
+        })
+     
+
         
         }
-    
-    func loginButtonClicked() {
-            let loginManager = LoginManager()
-            loginManager.logIn(permissions: ["public_profile", "email"], from: self, handler: { result, error in
-                if error != nil {
-                    print("ERROR: Trying to get login results")
-                } else if result?.isCancelled != nil {
-                    print("The token is \(result?.token?.tokenString ?? "")")
-                    if result?.token?.tokenString != nil {
-                        print("Logged in")
-                        self.getUserProfile(token: result?.token, userId: result?.token?.userID)
-
-                        
-                    } else {
-                        print("Cancelled")
-                    }
-                }
-            })
-        }
+   
     
     func getUserProfile(token: AccessToken?, userId: String?) {
             let graphRequest: GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, first_name, middle_name, last_name, name, picture, email"])
@@ -139,7 +141,7 @@ class AuthViewController: UIViewController {
                 print("givenName: \(givenName)")
                 
 
-                
+                self.performSegue(withIdentifier: "AuthToHome", sender: sender)
 
 
                

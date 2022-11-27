@@ -38,6 +38,9 @@ PODS:
     - AppAuth/Core (~> 1.6)
     - GTMSessionFetcher/Core (< 3.0, >= 1.5)
   - GTMSessionFetcher/Core (2.3.0)
+  - SDWebImage (5.14.2):
+    - SDWebImage/Core (= 5.14.2)
+  - SDWebImage/Core (5.14.2)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.2)
@@ -45,6 +48,7 @@ DEPENDENCIES:
   - FacebookLogin
   - FacebookShare
   - GoogleSignIn
+  - SDWebImage
 
 SPEC REPOS:
   trunk:
@@ -59,6 +63,7 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
+    - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
@@ -72,7 +77,8 @@ SPEC CHECKSUMS:
   GoogleSignIn: 5651ce3a61e56ca864160e79b484cd9ed3f49b7a
   GTMAppAuth: 0ff230db599948a9ad7470ca667337803b3fc4dd
   GTMSessionFetcher: 3a63d75eecd6aa32c2fc79f578064e1214dfdec2
+  SDWebImage: b9a731e1d6307f44ca703b3976d18c24ca561e84
 
-PODFILE CHECKSUM: 315c2d41cd767236388cada6a1b11a17515a1e2a
+PODFILE CHECKSUM: c4993837b4985dac0e9925d91f77e9b306dee68b
 
 COCOAPODS: 1.8.4
