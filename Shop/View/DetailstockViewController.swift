@@ -38,7 +38,10 @@ class DetailstockViewController: UIViewController {
     }
     
 
-
+    @IBAction func btnRetour(_ sender: Any) {
+        self.performSegue(withIdentifier: "retourtoListStock", sender: sender)
+    }
+    
 }
 
 

@@ -9,7 +9,7 @@ import UIKit
 import FBSDKLoginKit
 import FBSDKCoreKit
 import GoogleSignIn
-
+import LocalAuthentication
 class AuthViewController: UIViewController {
     
     
@@ -25,6 +25,44 @@ class AuthViewController: UIViewController {
                     // Show the Home ViewController
                 }
             }
+    
+    
+    
+    
+    @IBAction func faceIdBtn(_ sender: Any) {
+        let context = LAContext()
+        var error: NSError? = nil
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics
+                                     , error: &error) {
+            
+            let reason = "Please authorise with touch id!"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] success, error in
+                DispatchQueue.main.async {
+                    guard success , error == nil else {
+                        //failed
+                        let alert = UIAlertController(title: "Failed to Authentificate", message: "Please try again", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                        self?.present(alert, animated: true)
+                        return
+                    }
+                    //show other screen success
+                    self!.performSegue(withIdentifier: "AuthToHome", sender: sender)
+                }
+            }
+        }
+        else {
+            let alert = UIAlertController(title: "Unavailable", message: "you can use this feature", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            self.present(alert, animated: true)
+            return
+        }
+        
+    }
+    
+    
+    
+    
+    
     
     @IBAction func btnFacebook(_ sender: Any) {
        // self.loginButtonClicked()

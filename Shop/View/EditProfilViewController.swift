@@ -7,20 +7,45 @@
 
 import UIKit
 import CoreData
+import Alamofire
 
-class EditProfilViewController: UIViewController {
+extension UIImageView {
+    func downloaded(url: URL){
+       
+        URLSession.shared.dataTask(with: url) { data, response, error in
+guard
+    let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+    let mimeType = response?.mimeType, mimeType.hasPrefix("photo"),
+    let data = data, error == nil,
+    let image = UIImage(data: data)
+            else{ return }
+            DispatchQueue.main.async {
+                self.image = image
+            }
+        }.resume()
+    }
+    func downloaded(link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit){
+        guard let url = URL(string: link) else { return }
+        downloaded(url: url)
+    }
+}
+
+class EditProfilViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     public var connectedUser: User = User(id: "", email: "", password: "", firstName: "", lastName: "", gender: "" , age: "", photo: "")
-
+    var pickedImage = false
  
     @IBOutlet weak var editAgeTxt: UITextField!
     @IBOutlet weak var editLastnameTxt: UITextField!
     @IBOutlet weak var editFirstnameTxt: UITextField!
     @IBOutlet weak var editEmailTxt: UITextField!
     
+    @IBOutlet weak var imgProfile: UIImageView!
+    
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
    
-    fileprivate let baseURL = "https://shopapp.onrender.com"
+    fileprivate let baseURL = "http://172.17.2.174:2500"
     var imagePicker = UIImagePickerController()
     var networkService = NetworkService()
     var returnedAvatar:String="default"
@@ -34,12 +59,14 @@ class EditProfilViewController: UIViewController {
                                                     #selector(imageTapped(tapGestureRecognizer: )))
       
         imgprofil.addGestureRecognizer(tapgesture)*/
-     
+        imgProfile.backgroundColor = .cyan
+        imgProfile.layer.masksToBounds = true
+        imgProfile.layer.cornerRadius = imgProfile.frame.height / 2
         
         getConnectedUser()
         setupUser()
         
-
+       
         
     }
     
@@ -59,7 +86,9 @@ class EditProfilViewController: UIViewController {
         editFirstnameTxt.text = connectedUser.firstName
         editEmailTxt.text = connectedUser.email
         editAgeTxt.text = connectedUser.age
-       // profileImageView.image = connectedUser.photo
+        let completeLink = connectedUser.photo
+          imgProfile.downloaded(link: completeLink!)
+        print(completeLink)
         
     }
     
@@ -104,9 +133,60 @@ class EditProfilViewController: UIViewController {
     
     
     
+    @IBAction func selectBtn(_ sender: Any) {
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) && !pickedImage {
+                      let imagePickerController = UIImagePickerController()
+                      imagePickerController.delegate = self
+                      imagePickerController.sourceType = .photoLibrary
+                      self.present(imagePickerController, animated: true, completion: nil)
+                      pickedImage = true
+              }
+    }
     
     
     
+    
+    
+    @IBAction func uploadbTN(_ sender: Any) {
+       guard let imageData = imgProfile.image?.jpegData(compressionQuality: 0.75) else { return }
+        uploadImage(imgData: imageData, imageName: "chichi.jpg")
+    }
+    
+    
+    
+    func uploadImage(imgData:Data,imageName:String){
+      
+   
+       
+       
+        let params = ["id":connectedUser.id]
+       print(params)
+       AF.upload(multipartFormData: { multiPart in
+           multiPart.append(imgData, withName: "photo",fileName: imageName,mimeType: "image/*")
+
+         for (key,keyValue) in params{
+               if let keyData = keyValue!.data(using: String.Encoding.utf8){
+                       multiPart.append(keyData, withName: key)
+                   }
+               }
+       }, to: "http://172.17.2.174:2500/users/updatephoto/\(connectedUser.id!)",headers: []).responseJSON { apiResponse in
+           
+           switch apiResponse.result{
+           case .success(_):
+               let apiDictionary = apiResponse.value as? [String:Any]
+               print("apiResponse --- \(apiDictionary)")
+               print("ajout avec succes")
+               print ( "http://172.17.3.173:2500/users/updatephoto/\(self.connectedUser.id!)")
+
+           case .failure(_):
+               print("got an error")
+               print(apiResponse.error?.errorDescription)            }
+       }
+       
+       
+        
+   }
+
     
     
     
@@ -119,6 +199,7 @@ class EditProfilViewController: UIViewController {
     
    
     @IBAction func SaveBtn(_ sender: Any) {
+      
         let parameters = ["id" : connectedUser.id,"firstName" : editFirstnameTxt.text! ,"lastName" : editLastnameTxt.text! , "email" : editEmailTxt.text!, "age" : editAgeTxt.text!]  as [String:Any]
         
         guard let url = URL(string: self.baseURL+"/users/UpdateUser") else { return }
@@ -204,6 +285,13 @@ class EditProfilViewController: UIViewController {
     
     
     
+    
+    
+    
+    
+    
+    
+    
     func updateData(id : String) {
         guard
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -226,7 +314,7 @@ class EditProfilViewController: UIViewController {
             object.setValue(editLastnameTxt.text!, forKey: "lastName")
             object.setValue( editEmailTxt.text!, forKey: "email")
             object.setValue(editAgeTxt.text!, forKey: "age")
-           // object.setValue(profileImageView.image!, forKey: "photo")
+          //  object.setValue(photo.text!, forKey: "photo")
 
             
             
@@ -257,7 +345,7 @@ class EditProfilViewController: UIViewController {
         object.setValue(self.connectedUser.lastName, forKey: "lastName")
         object.setValue(self.connectedUser.email, forKey: "email")
         object.setValue(self.connectedUser.age, forKey: "age")
-       // object.setValue(self.connectedUser.photo, forKey: "photo")
+        object.setValue(self.connectedUser.photo, forKey: "photo")
 
        
                 
@@ -285,7 +373,7 @@ class EditProfilViewController: UIViewController {
                 self.connectedUser.lastName=(obj.value(forKey: "lastName") as! String)
                 self.connectedUser.email=(obj.value(forKey: "email") as! String)
                 self.connectedUser.age=(obj.value(forKey: "age") as! String)
-              //  self.connectedUser.photo=(obj.value(forKey: "photo") as? String)
+             //   self.connectedUser.photo=(obj.value(forKey: "photo") as! String)
 
                
             }
@@ -355,7 +443,15 @@ class EditProfilViewController: UIViewController {
     }*/
     
     
-    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+           let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        imgProfile.image = image
+           self.dismiss(animated: true, completion: nil)
+       }
+       func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+           self.dismiss(animated: true, completion: nil)
+       }
+
         
         
     }

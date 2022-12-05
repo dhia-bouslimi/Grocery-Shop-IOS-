@@ -12,22 +12,62 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     public var connectedUser: User = User(id: "", email: "", password: "", firstName: "", lastName: "", gender: "" , age: "", photo: "", code: "",codeAdmin: "")
     public var responseError:ErrorMessage = ErrorMessage( error: "")
-    fileprivate let baseURL = "https://shopapp.onrender.com"
+    fileprivate let baseURL = "http://172.17.2.174:2500"
     
     
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var emailTxtField: UITextField!
     
-  
+    var iconClick = false
+      let imageicon = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTxtField.delegate = self
         passwordTxtField.delegate = self
 
-
+        imageicon.image = UIImage(named: "colseeye")
+        
+        let contentView = UIView()
+        contentView.addSubview(imageicon)
+        
+        contentView.frame = CGRect(x: 0, y: 0, width: UIImage(named: "closeeye")!.size.width, height: UIImage(named: "closeeye")!.size.height)
+        
+        
+        imageicon.frame = CGRect(x: -10, y: 0, width: UIImage(named: "closeeye")!.size.width, height: UIImage(named: "closeeye")!.size.height)
+        
+        
+        
+        passwordTxtField.rightView = contentView
+        passwordTxtField.rightViewMode = .always
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imageicon.isUserInteractionEnabled = true
+        imageicon.addGestureRecognizer(tapGestureRecognizer)
         // Do any additional setup after loading the view.
+      
     }
+    
+    
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        if iconClick
+        {
+            iconClick = false
+            tappedImage.image = UIImage(named: "openeye")
+            passwordTxtField.isSecureTextEntry = false
+        }
+     else
+        {
+            iconClick = true
+            tappedImage.image = UIImage(named: "closeeye")
+            passwordTxtField.isSecureTextEntry = true
+        }
+
+    }
+    
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

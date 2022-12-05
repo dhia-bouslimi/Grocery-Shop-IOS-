@@ -11,7 +11,12 @@
 		F44AD236292296AC00C8F0C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44AD235292296AC00C8F0C2 /* HomeViewController.swift */; };
 		F472F83729258AC500305FC2 /* EditProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F472F83629258AC500305FC2 /* EditProfilViewController.swift */; };
 		F494E4F5293180A700F1D97B /* StockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F494E4F4293180A700F1D97B /* StockViewController.swift */; };
+		F498B069293B9986002FAD16 /* PromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498B068293B9986002FAD16 /* PromoViewController.swift */; };
+		F498B06B293BA0EA002FAD16 /* PromoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498B06A293BA0EA002FAD16 /* PromoCollectionViewCell.swift */; };
+		F498B06D293BAD4D002FAD16 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498B06C293BAD4D002FAD16 /* SwiftUIView.swift */; };
+		F498B071293BB7A5002FAD16 /* FormSwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F498B070293BB7A5002FAD16 /* FormSwiftUIView.swift */; };
 		F499682F29338C6400841697 /* DetailstockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F499682E29338C6400841697 /* DetailstockViewController.swift */; };
+		F49C34322937FCA0004CBCF4 /* EditProduitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49C34312937FCA0004CBCF4 /* EditProduitViewController.swift */; };
 		F49D2C33292A60970083D83B /* DetailFournisseurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D2C32292A60970083D83B /* DetailFournisseurViewController.swift */; };
 		F49D904D291D956900009C67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D904C291D956900009C67 /* User.swift */; };
 		F4A5647A291FBB2E003407FD /* Forget2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A56479291FBB2E003407FD /* Forget2ViewController.swift */; };
@@ -68,7 +73,12 @@
 		F44AD235292296AC00C8F0C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F472F83629258AC500305FC2 /* EditProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilViewController.swift; sourceTree = "<group>"; };
 		F494E4F4293180A700F1D97B /* StockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewController.swift; sourceTree = "<group>"; };
+		F498B068293B9986002FAD16 /* PromoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoViewController.swift; sourceTree = "<group>"; };
+		F498B06A293BA0EA002FAD16 /* PromoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoCollectionViewCell.swift; sourceTree = "<group>"; };
+		F498B06C293BAD4D002FAD16 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		F498B070293BB7A5002FAD16 /* FormSwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSwiftUIView.swift; sourceTree = "<group>"; };
 		F499682E29338C6400841697 /* DetailstockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailstockViewController.swift; sourceTree = "<group>"; };
+		F49C34312937FCA0004CBCF4 /* EditProduitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProduitViewController.swift; sourceTree = "<group>"; };
 		F49D2C32292A60970083D83B /* DetailFournisseurViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFournisseurViewController.swift; sourceTree = "<group>"; };
 		F49D9048291D8A7000009C67 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49D904C291D956900009C67 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -180,6 +190,11 @@
 				F494E4F4293180A700F1D97B /* StockViewController.swift */,
 				F4AB261E2932917B00846585 /* CustomCollectionViewCell.swift */,
 				F499682E29338C6400841697 /* DetailstockViewController.swift */,
+				F49C34312937FCA0004CBCF4 /* EditProduitViewController.swift */,
+				F498B068293B9986002FAD16 /* PromoViewController.swift */,
+				F498B06A293BA0EA002FAD16 /* PromoCollectionViewCell.swift */,
+				F498B06C293BAD4D002FAD16 /* SwiftUIView.swift */,
+				F498B070293BB7A5002FAD16 /* FormSwiftUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -445,6 +460,7 @@
 			files = (
 				F4A5647E291FC4B8003407FD /* code.swift in Sources */,
 				F4BF9155291D648D002112C9 /* LoginViewController.swift in Sources */,
+				F49C34322937FCA0004CBCF4 /* EditProduitViewController.swift in Sources */,
 				F4BF911F291D3D1A002112C9 /* ViewController.swift in Sources */,
 				F4A73380292930AA000E32E5 /* Fournisseur.swift in Sources */,
 				F4BF9157291D69E4002112C9 /* RegisterViewController.swift in Sources */,
@@ -457,9 +473,12 @@
 				F49D904D291D956900009C67 /* User.swift in Sources */,
 				F472F83729258AC500305FC2 /* EditProfilViewController.swift in Sources */,
 				F4B3AD71291EB7F9003D2363 /* Parser.swift in Sources */,
+				F498B06B293BA0EA002FAD16 /* PromoCollectionViewCell.swift in Sources */,
 				F4AD0BE3292515F60037C63D /* HomeSwiftUIView.swift in Sources */,
 				F4A7337C29290A36000E32E5 /* NetworkService.swift in Sources */,
+				F498B06D293BAD4D002FAD16 /* SwiftUIView.swift in Sources */,
 				F4B3AD75291EC877003D2363 /* Message.swift in Sources */,
+				F498B071293BB7A5002FAD16 /* FormSwiftUIView.swift in Sources */,
 				F4B3AD77291EE182003D2363 /* forgetViewController.swift in Sources */,
 				F4BF9153291D50B0002112C9 /* AuthViewController.swift in Sources */,
 				F4AB261F2932917B00846585 /* CustomCollectionViewCell.swift in Sources */,
@@ -468,6 +487,7 @@
 				F44AD236292296AC00C8F0C2 /* HomeViewController.swift in Sources */,
 				F4A5647A291FBB2E003407FD /* Forget2ViewController.swift in Sources */,
 				F499682F29338C6400841697 /* DetailstockViewController.swift in Sources */,
+				F498B069293B9986002FAD16 /* PromoViewController.swift in Sources */,
 				F4BF911D291D3D1A002112C9 /* SceneDelegate.swift in Sources */,
 				F4B3AD73291EBA35003D2363 /* ErrorMessage.swift in Sources */,
 				F4BF9125291D3D1A002112C9 /* Shop.xcdatamodeld in Sources */,

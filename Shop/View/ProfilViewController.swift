@@ -23,6 +23,17 @@ class ProfilViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+   
+    @IBAction func darkModebtn(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            overrideUserInterfaceStyle = .light
+        } else {
+            overrideUserInterfaceStyle = .dark
+        }
+    }
+    
 
     @IBAction func editBtn(_ sender: Any) {
         
@@ -34,6 +45,7 @@ class ProfilViewController: UIViewController {
         firstnameTxt.text = connectedUser.firstName
         emailTxt.text = connectedUser.email
         ageTxt.text = connectedUser.age
+        
         
     }
     
@@ -51,6 +63,8 @@ class ProfilViewController: UIViewController {
                 self.connectedUser.lastName=(obj.value(forKey: "lastName") as! String)
                 self.connectedUser.email=(obj.value(forKey: "email") as! String)
                 self.connectedUser.age=(obj.value(forKey: "age") as! String)
+               // self.connectedUser.photo=(obj.value(forKey: "photo") as! String)
+
                
             }
             

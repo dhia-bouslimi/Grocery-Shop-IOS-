@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+import Alamofire
 extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit){
+    func downloadedFrom(url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill){
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
 guard
@@ -40,6 +40,7 @@ struct Stock: Decodable {
 class StockViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     
+  
     @IBOutlet weak var collectionview: UICollectionView!
     
     
@@ -52,7 +53,7 @@ class StockViewController: UIViewController, UICollectionViewDataSource, UIColle
        
         collectionview.delegate = self
         collectionview.dataSource = self
-        let url = URL(string: "https://shopapp.onrender.com/stocks/stock")
+        let url = URL(string: "http://172.17.2.174:2500/stocks/stock")
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
                 do { 
@@ -69,9 +70,51 @@ class StockViewController: UIViewController, UICollectionViewDataSource, UIColle
     }
     
     
+    @IBAction func Add(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "addToEditproduit", sender: sender)
+
+    }
     
-    
+    func DeleteStock (type : String,onSuccess: @escaping () -> Void ,onFailure: @escaping (_ errorMessage: String) -> Void ) {
+          
+           AF.request("http://172.17.2.174:2500/stocks/delete/\(type)", method: .delete,
+                      
+                      encoding: JSONEncoding.prettyPrinted)
+          
+           .responseJSON() {
+               (response) in
+             
+               switch response.result {
+                   
+               case .success(let res):
+           
+                   print("Delete faints successful")
+                    
+                   onSuccess()
+                   
+                   
+               case .failure(let err):
+                   onFailure(err.errorDescription!)
+                   print("Delete faints failed",err)
+                   return
+               }
+           }
+       }
    
+    @IBAction func deletestock(_ sender: Any) {
+        let point = (sender as AnyObject).convert(CGPoint.zero, to:collectionview)
+               guard let indexpath = collectionview.indexPathForItem(at: point) else { return }
+               var type = stocks[indexpath.row].type
+               DeleteStock(type: type, onSuccess: {
+                   self.stocks.remove(at: indexpath.row)
+                   self.collectionview.reloadData()
+               },onFailure: {errorMessage in
+                   print("error")
+                   
+               })
+        
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -80,11 +123,11 @@ class StockViewController: UIViewController, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "customcell", for: indexPath) as! CustomCollectionViewCell
         cell.typelbl.text = stocks[indexPath.row].type.capitalized
-        cell.imageview.contentMode = .scaleAspectFit
+        cell.imageview.contentMode = .scaleAspectFill
         let completeLink = stocks[indexPath.row].image
         print(completeLink)
         cell.imageview.downloadedFrom(link: completeLink)
-        cell.imageview.layer.cornerRadius = 20
+        cell.imageview.layer.cornerRadius = 38
        
         return cell
     }

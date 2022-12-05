@@ -7,15 +7,110 @@
 
 import SwiftUI
 import UIKit
+
+let getUrl = "http://172.17.2.174:2500/promotions/promotion"
+let promoUrl = "http://172.17.2.174:2500/promotions/addpromotion"
+
+struct Promo: Codable {
+    let id, prixPromo: String
+    let duree: String
+    let createdAt: String
+    let v: Int
+    let welcomeID: String
+    let produit: String?
+
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case prixPromo = "prix_promo"
+        case duree, createdAt
+        case v = "__v"
+        case welcomeID = "id"
+        case produit
+    }
+}
+
+class ViewPromo: ObservableObject {
+    @Published var items = [Promo]()
+    func loadData() {
+        guard let url = URL(string: getUrl) else { return }
+        URLSession.shared.dataTask(with: url) { (data, res, err) in
+            if err == nil{
+                do {
+                    if let data = data {
+                        let result = try JSONDecoder().decode([Promo].self, from: data)
+                        DispatchQueue.main.async {
+                            self.items = result
+                            print(self.items)
+                        }
+                    } else {
+                        print("no data")
+                    }
+                    
+                } catch (let error){
+                    print(error)
+                }
+            }
+        }.resume()
+    }
+    func addProposition(parameters: [String: Any]){
+        
+            guard let url = URL(string: promoUrl) else {
+                print("not found")
+                return
+            }
+            let data = try! JSONSerialization.data(withJSONObject: parameters)
+            
+            var request = URLRequest(url: url)
+            request.httpMethod = "POST"
+            request.httpBody = data
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            
+            URLSession.shared.dataTask(with: request) {
+                (data , res , error) in
+                if error != nil
+                {
+                    print ("error", error?.localizedDescription ?? "")
+                    return
+                }
+                do {
+                    if let data = data {
+                        let result = try JSONDecoder().decode(Promo.self, from: data)
+                        DispatchQueue.main.async {
+                           
+                            print(result)
+                        }
+                        
+                    }
+                    else {
+                        print ("no data")
+                    }
+                } catch let JsonError {
+                    
+                    //  print("fetch json error :", JsonError.localizedDescription)
+                    print(String(describing: JsonError))
+                    
+                }
+            }.resume()
+            
+            
+        }
+}
+
 struct HomeSwiftUIView: View {
+    
+    @ObservedObject var viewPromo = ViewPromo()
+    @State var showListItems = false
+    @State var animationDelay = 0.5
     @State var selectedIndex = 0
     let icons = [
-    "house",
-    "gift",
-    "plus",
-    "map",
-    "person"
+        "house",
+        "gift",
+        "plus",
+        "map",
+        "person"
     ]
+    let image = ["20.jpg"]
     var body: some View {
         VStack{
             //content
@@ -27,15 +122,70 @@ struct HomeSwiftUIView: View {
                             
                             storyboardviewstock().edgesIgnoringSafeArea(.all)
                         }
-                        .navigationTitle("Home")
+                
                     }
                 case 1:
                     NavigationView{
+                        
+                        
                         VStack{
-                           // Text("First Screen")
-                           // storyboardview().edgesIgnoringSafeArea(.all)
-                        }
-                        .navigationTitle("Gift")
+                            HStack{
+                                button
+                               Spacer()
+                            }
+                            
+                            ScrollView {
+                                ForEach (viewPromo.items, id: \.id) { item in
+                                    HStack {
+                                        
+                                        
+                                        Text(item.prixPromo)
+                                            .font(.system(size: 14, weight:  .heavy))
+                                            .padding(.vertical, 6)
+                                            .padding(.horizontal, 12)
+                                            .background(Color.green)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(10)
+                                        Spacer()
+                                        Text(item.duree)
+                                            .font(.footnote)
+                                            .fontWeight(.bold)
+                                            .padding(.vertical, 2)
+                                            .foregroundColor(.white)
+                                        Spacer()
+                                        Text(item.produit!)
+                                            .font(.footnote)
+                                            .fontWeight(.bold)
+                                            .padding(.vertical, 2)
+                                            .foregroundColor(.white)
+                                        
+                                        
+                                        
+                                        
+                                    }.foregroundColor(.white)
+                                        .padding()
+                                        .background(Color.gray)
+                                        .clipShape(RoundedRectangle(cornerRadius: 80.0))
+                                    
+                                    
+                                }
+                                
+                            }
+                            
+                        }.onAppear(perform: {
+                            viewPromo.loadData()
+                            
+                            
+                        })
+                        .accentColor(Color.black)
+                        .background(Color.green.opacity(0.5))
+                        .navigationTitle("Promotion Du Jour")
+                        
+                        
+                        
+                        
+                        
+                        
                     }
                 case 2:
                     NavigationView{
@@ -43,7 +193,7 @@ struct HomeSwiftUIView: View {
                             
                             storyboardview().edgesIgnoringSafeArea(.all)
                         }
-                       
+                        
                     }
                 case 3:
                     NavigationView{
@@ -58,9 +208,9 @@ struct HomeSwiftUIView: View {
                             //Text("Second Screen")
                             storyboardviewprofil().edgesIgnoringSafeArea(.all)
                         }
-                        .navigationTitle("Person")
+                        
                     }
-
+                    
                     
                 }
             }
@@ -68,10 +218,10 @@ struct HomeSwiftUIView: View {
             HStack{
                 ForEach(0..<5, id: \.self){number in
                     Spacer()
-
+                    
                     Button(action: {
-                    self.selectedIndex = number
-
+                        self.selectedIndex = number
+                        
                     }, label:{
                         if number == 2 {
                             Image(systemName: icons[number])
@@ -92,11 +242,36 @@ struct HomeSwiftUIView: View {
                         }
                     })
                     Spacer()
-
+                    
                 }
             }
         }
     }
+    
+    
+    
+    var button: some View {
+            NavigationLink(
+                destination:
+                   SwiftUIView(prix_promo: "", produit: "", duree: "")
+            ) {
+              
+            }
+            .buttonStyle(SecondaryButton(buttonTextColor: Color.green, buttonBackground: Color.red))
+            
+        }
+    struct SecondaryButton: ButtonStyle {
+        let buttonTextColor: Color
+        let buttonBackground: Color
+        
+        func makeBody(configuration: Configuration) -> some View {
+            configuration.label
+            Circle().fill(Color.white).frame(width: 75, height: 75)
+                .shadow(radius: 10)
+                .overlay(Image(systemName: "pencil.circle.fill").font(.largeTitle)).foregroundColor(Color.blue)
+        }
+    }
+    
   
 }
 
@@ -152,3 +327,15 @@ struct storyboardviewstock: UIViewControllerRepresentable{
         
     }
 }
+struct storyboardviewpromo: UIViewControllerRepresentable{
+    func makeUIViewController(context: Context) -> some UIViewController {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let controller = storyboard.instantiateViewController(withIdentifier: "PromoViewController")
+        return controller
+    }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+}
+
+

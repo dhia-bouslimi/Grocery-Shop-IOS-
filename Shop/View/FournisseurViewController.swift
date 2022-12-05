@@ -14,7 +14,7 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var NumTelTxt: UITextField!
     @IBOutlet weak var FullNameTxt: UITextField!
     
-    fileprivate let baseURL = "https://shopapp.onrender.com/"
+    fileprivate let baseURL = "http://172.17.2.174:2500/"
     public var SuccessMessage:Message = Message(message: "")
     
     override func viewDidLoad() {
@@ -34,7 +34,37 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
 
    
     @IBAction func AddBtn(_ sender: Any) {
-        if(FullNameTxt.text != "" && NumTelTxt.text != "" && AdresseTxt.text != "" && SecteurTxt.text != "" )
+        let numtel = NumTelTxt.text
+        let adresse = AdresseTxt.text
+        let secteur = SecteurTxt.text
+        let fullname = FullNameTxt.text
+        if fullname == "" {
+             print("fullnme empty")
+             let alert = UIAlertController(title: "FullName field is empty", message: "please fill your inputs", preferredStyle: .alert)
+             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+             self.present(alert, animated: true)
+         }
+      else  if numtel == "" {
+             print("fullnme empty")
+             let alert = UIAlertController(title: "Num Télephone field is empty", message: "please fill your inputs", preferredStyle: .alert)
+             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+             self.present(alert, animated: true)
+         }
+       else if adresse == "" {
+             print("fullnme empty")
+             let alert = UIAlertController(title: "Adresse field is empty", message: "please fill your inputs", preferredStyle: .alert)
+             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+             self.present(alert, animated: true)
+         }
+        else if secteur == "" {
+              print("fullnme empty")
+              let alert = UIAlertController(title: "Secteur field is empty", message: "please fill your inputs", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+              self.present(alert, animated: true)
+          }
+
+        
+     else if(FullNameTxt.text != "" && NumTelTxt.text != "" && AdresseTxt.text != "" && SecteurTxt.text != "" )
         {
             
             let parameters = ["fullName" : FullNameTxt.text! ,"adresse" : AdresseTxt.text! , "numTel" : NumTelTxt.text! , "secteur" : SecteurTxt.text! ]  as [String:Any]
