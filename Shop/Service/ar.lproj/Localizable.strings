@@ -1,0 +1,31 @@
+/*
+  Localizable.strings
+  Shop
+
+  Created by hamza-dridi on 8/12/2022.
+  
+*/
+"email field is empty" = " حقل البريد الإلكتروني فارغ";
+"please fill your inputs" = "الرجاء ملء المدخلات الخاصة بك";
+"ok" = "موافق";
+"password field is empty" = "حقل كلمة المرور فارغ";
+"languageBtn" = "change language to english";
+"btnstarted" = "البدء";
+"User Name field is empty" = "حقل اسم المستخدم فارغ";
+"Last Name field is empty" = "حقل الاسم الأخير فارغ";
+"Your Email IS Not Valid" = "البريد الإلكتروني غير صالح";
+"Password field is empty" = "حقل كلمة المرور فارغ";
+"Age field is empty" = "حقل العمر فارغ";
+"Gender field is empty" = "حقل الجنس فارغ";
+"Incorrect password OR Email" = "كلمة المرور أو البريد إلكتروني غير صحيحة ";
+"check your inputs" = "تحقق من مدخلاتك";
+"Failed to Authentificate" = "فشل المصادقة";
+"Please try again" = "حاول مرة اخرى";
+"Dismiss" =
+"رفض";
+"Unavailable" = "غير متوفره";
+"you can use this feature" = "يمكنك استخدام هذه الميزة";
+"FullName field is empty" = "حقل الاسم الكامل فارغ";
+"Num Télephone field is empty" = "حقل رقم الهاتف فارغ";
+"Adresse field is empty" = "حقل العنوان فارغ";
+"Secteur field is empty" = "حقل القطاع فارغ";

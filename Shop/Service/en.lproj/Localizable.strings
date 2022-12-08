@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  Shop
+
+  Created by hamza-dridi on 8/12/2022.
+  
+*/
+"email field is empty" = "email field is empty";
+"please fill your inputs" = "please fill your inputs";
+"ok" = "ok";
+"password field is empty" = "password field is empty";
+"languageBtn" = "تغيير اللغة إلى العربية";
+"btnstarted" = "started";
+"User Name field is empty" = "User Name field is empty";
+"Last Name field is empty" = "Last Name field is empty";
+"Your Email IS Not Valid" = "Your Email IS Not Valid";
+"Password field is empty" = "Password field is empty";
+"Age field is empty" ="Age field is empty";
+"Gender field is empty" ="Gender field is empty";
+"Incorrect password OR Email" =  "Incorrect password OR Email";
+"check your inputs" = "check your inputs";
+"Failed to Authentificate" = "Failed to Authentificate";
+"Please try again" = "Please try again";
+"Dismiss" = "Dismiss";
+"Unavailable" = "Unavailable";
+"you can use this feature" = "you can use this feature";
+"FullName field is empty" = "FullName field is empty";
+"Num Télephone field is empty" = "Num Télephone field is empty";
+"Adresse field is empty" =  "Adresse field is empty";
+"Secteur field is empty" = "Secteur field is empty";

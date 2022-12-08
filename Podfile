@@ -10,7 +10,8 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FacebookShare'
 pod 'GoogleSignIn'
-pod 'SDWebImage
+pod 'SDWebImage'
+pod 'MOLH'
 
 
 end

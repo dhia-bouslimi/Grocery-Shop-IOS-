@@ -8,8 +8,8 @@
 import SwiftUI
 import UIKit
 
-let getUrl = "http://172.17.2.174:2500/promotions/promotion"
-let promoUrl = "http://172.17.2.174:2500/promotions/addpromotion"
+let getUrl = "http://172.17.4.53:2500/promotions/promotion"
+let promoUrl = "http://172.17.4.53:2500/promotions/addpromotion"
 
 struct Promo: Codable {
     let id, prixPromo: String

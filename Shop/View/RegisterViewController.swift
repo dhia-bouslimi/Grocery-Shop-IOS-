@@ -16,7 +16,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var Emailtxt: UITextField!
     @IBOutlet weak var userNametxt: UITextField!
     
-    fileprivate let baseURL = "http://172.17.2.174:2500/"
+    fileprivate let baseURL = "http://172.17.4.53:2500/"
     public var SuccessMessage:Message = Message(message: "")
     
     override func viewDidLoad() {
@@ -42,33 +42,33 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBAction func signupbtn(_ sender: Any) {
         let isEmailAddressValid = isValidEmailAddress(emailAddressString: Emailtxt.text!)
         if(userNametxt.text == "") {
-                  let alert = UIAlertController(title: "User Name field is empty", message: "please enter all fields", preferredStyle: .alert)
-                  alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            let alert = UIAlertController(title: "User Name field is empty".localizedSignup, message: "please enter all fields".localizedSignup, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok".localized, style: .default, handler: nil))
                   self.present(alert, animated: true)
                   
               }
         else if(lastNametxt.text == "") {
-                   let alert = UIAlertController(title: "Last Name field is empty", message: "please enter all fields", preferredStyle: .alert)
-                   alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Last Name field is empty".localizedSignup, message: "please enter all fields".localizedSignup, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok".localizedSignup, style: .default, handler: nil))
                    self.present(alert, animated: true)
                    
                }
         else if(
             (Emailtxt.text != nil) != isEmailAddressValid ){
-            let alert = UIAlertController(title: "Your Email IS Not Valid", message: "check your inputs", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Your Email IS Not Valid".localizedSignup, message: "check your inputs".localizedSignup, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok".localizedSignup, style: .default, handler: nil))
             self.present(alert, animated: true)
             
         }
         else if(passwordtxt.text == "") {
-                   let alert = UIAlertController(title: "Password field is empty", message: "please enter all fields", preferredStyle: .alert)
-                   alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Password field is empty".localizedSignup, message: "please enter all fields".localizedSignup, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok".localizedSignup, style: .default, handler: nil))
                    self.present(alert, animated: true)
                    
                }
         else if(agetxt.text == "") {
-                   let alert = UIAlertController(title: "Age field is empty", message: "please enter all fields", preferredStyle: .alert)
-                   alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Age field is empty".localizedSignup, message: "please enter all fields".localizedSignup, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok".localizedSignup, style: .default, handler: nil))
                    self.present(alert, animated: true)
                    
                }
@@ -150,4 +150,12 @@ func isValidEmailAddress(emailAddressString: String) -> Bool {
     }
     
     return  returnValue
+}
+
+
+
+extension String {
+    var localizedSignup: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }

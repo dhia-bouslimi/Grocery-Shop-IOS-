@@ -40,8 +40,8 @@ class AuthViewController: UIViewController {
                 DispatchQueue.main.async {
                     guard success , error == nil else {
                         //failed
-                        let alert = UIAlertController(title: "Failed to Authentificate", message: "Please try again", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+                        let alert = UIAlertController(title: "Failed to Authentificate".localizedaAuth, message: "Please try again".localizedaAuth, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Dismiss".localizedaAuth, style: .cancel, handler: nil))
                         self?.present(alert, animated: true)
                         return
                     }
@@ -51,8 +51,8 @@ class AuthViewController: UIViewController {
             }
         }
         else {
-            let alert = UIAlertController(title: "Unavailable", message: "you can use this feature", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: nil))
+            let alert = UIAlertController(title: "Unavailable".localizedaAuth, message: "you can use this feature".localizedaAuth, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss".localizedaAuth, style: .cancel, handler: nil))
             self.present(alert, animated: true)
             return
         }
@@ -195,3 +195,9 @@ class AuthViewController: UIViewController {
     
     
    
+
+extension String {
+    var localizedaAuth: String {
+        return NSLocalizedString(self, comment: "")
+    }
+}

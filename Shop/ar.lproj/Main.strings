@@ -1,0 +1,295 @@
+
+/* Class = "UILabel"; text = "FirstName :"; ObjectID = "0Sk-MM-mq4"; */
+"0Sk-MM-mq4.text" = "الاسم :";
+
+/* Class = "UIButton"; configuration.title = "Reset Password"; ObjectID = "1An-ZC-oSJ"; */
+"1An-ZC-oSJ.configuration.title" = "إعادة تعيين كلمة المرور";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "1An-ZC-oSJ"; */
+"1An-ZC-oSJ.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "1GX-VJ-Co5"; */
+"1GX-VJ-Co5.placeholder" = "كلمة المرور";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "1gh-0c-afc"; */
+"1gh-0c-afc.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4tJ-hO-6pC"; */
+"4tJ-hO-6pC.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Quantité"; ObjectID = "5R5-Rf-UF2"; */
+"5R5-Rf-UF2.placeholder" = "الكمية";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "5at-ty-3lD"; */
+"5at-ty-3lD.placeholder" = "البريد الإلكتروني";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6c4-Xc-fxq"; */
+"6c4-Xc-fxq.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "save"; ObjectID = "6xI-Pi-xM4"; */
+"6xI-Pi-xM4.configuration.title" = "حفظ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6xI-Pi-xM4"; */
+"6xI-Pi-xM4.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Save"; ObjectID = "7ZY-FM-7oT"; */
+"7ZY-FM-7oT.configuration.title" = "حفظ";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7ZY-FM-7oT"; */
+"7ZY-FM-7oT.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7cT-HP-hRg"; */
+"7cT-HP-hRg.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "NumTel"; ObjectID = "7dA-lM-Ky7"; */
+"7dA-lM-Ky7.placeholder" = "رقم الهاتف";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "7ta-ur-Gjv"; */
+"7ta-ur-Gjv.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "Get Started"; ObjectID = "7va-M6-fbs"; */
+"7va-M6-fbs.configuration.title" = "البدء";
+
+/* Class = "UIButton"; normalTitle = "Get Started"; ObjectID = "7va-M6-fbs"; */
+"7va-M6-fbs.normalTitle" = "البدء";
+
+/* Class = "UILabel"; text = "Email :"; ObjectID = "82G-Bo-t7n"; */
+"82G-Bo-t7n.text" = "البريد الإلكتروني";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8Hm-fU-7NI"; */
+"8Hm-fU-7NI.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "BVj-LM-Xy1"; */
+"BVj-LM-Xy1.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Log Out"; ObjectID = "Dbx-UF-6H2"; */
+"Dbx-UF-6H2.configuration.title" = "تسجيل الخروج";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Dbx-UF-6H2"; */
+"Dbx-UF-6H2.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "FistName"; ObjectID = "Dvw-L7-RnU"; */
+"Dvw-L7-RnU.placeholder" = "الاسم ";
+
+/* Class = "UIButton"; configuration.title = "Forget password"; ObjectID = "FUa-1a-6cw"; */
+"FUa-1a-6cw.configuration.title" = "نسيت كلمة المرور";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FUa-1a-6cw"; */
+"FUa-1a-6cw.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Or login with"; ObjectID = "FpA-dy-eaQ"; */
+"FpA-dy-eaQ.text" = "أو";
+
+/* Class = "UIButton"; configuration.title = "Register"; ObjectID = "FuE-tH-R9A"; */
+"FuE-tH-R9A.configuration.title" = "قم بالتسجيل قبل الدخول";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "FuE-tH-R9A"; */
+"FuE-tH-R9A.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "G4Q-gM-5kA"; */
+"G4Q-gM-5kA.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Facebook"; ObjectID = "GQS-Ge-cZk"; */
+"GQS-Ge-cZk.configuration.title" = "Facebook";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "GQS-Ge-cZk"; */
+"GQS-Ge-cZk.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Details"; ObjectID = "HXW-8z-9SE"; */
+"HXW-8z-9SE.text" = "التفاصيل";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "KDk-Qx-9Ry"; */
+"KDk-Qx-9Ry.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MNU-1Z-D9B"; */
+"MNU-1Z-D9B.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Age"; ObjectID = "Mzr-4v-bok"; */
+"Mzr-4v-bok.placeholder" = "سن";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "OsY-EW-MmZ"; */
+"OsY-EW-MmZ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ptu-5L-Ccq"; */
+"Ptu-5L-Ccq.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "new password"; ObjectID = "Q0k-mD-JFw"; */
+"Q0k-mD-JFw.placeholder" = "كلمة السر الجديدة";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "R9i-rf-ed7"; */
+"R9i-rf-ed7.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "confirm password"; ObjectID = "TT0-4Z-sDn"; */
+"TT0-4Z-sDn.placeholder" = "تأكيد كلمة المرور";
+
+/* Class = "UIButton"; configuration.title = "Register"; ObjectID = "TT5-Tq-wta"; */
+"TT5-Tq-wta.configuration.title" = "قم بالتسجيل قبل الدخول";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "TT5-Tq-wta"; */
+"TT5-Tq-wta.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "V11-in-7JR"; */
+"V11-in-7JR.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "W01-A6-Q5d"; */
+"W01-A6-Q5d.configuration.title" = "تسجيل الدخول";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "W01-A6-Q5d"; */
+"W01-A6-Q5d.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WkJ-3G-uAX"; */
+"WkJ-3G-uAX.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "login"; ObjectID = "Xxc-fo-Lbu"; */
+"Xxc-fo-Lbu.configuration.title" = "تسجيل الدخول";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Xxc-fo-Lbu"; */
+"Xxc-fo-Lbu.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "LastName"; ObjectID = "YvJ-JU-0B1"; */
+"YvJ-JU-0B1.placeholder" = "اللقب";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ahb-ph-n0g"; */
+"ahb-ph-n0g.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Reset Your Password "; ObjectID = "bY8-jj-iWL"; */
+"bY8-jj-iWL.text" = "اعد ضبط كلمه السر ";
+
+/* Class = "UILabel"; text = "Give Me Your Email"; ObjectID = "bhf-hV-VVJ"; */
+"bhf-hV-VVJ.text" = "اعطني بريدك الإلكتروني";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cDY-5Z-G9n"; */
+"cDY-5Z-G9n.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Gender"; ObjectID = "cQj-Y6-4K1"; */
+"cQj-Y6-4K1.placeholder" = "جنس";
+
+/* Class = "UILabel"; text = "Not have an account? "; ObjectID = "cZ3-Zu-7vj"; */
+"cZ3-Zu-7vj.text" = "ليس لديك حساب؟ ";
+
+/* Class = "UITextField"; placeholder = "Age"; ObjectID = "cgf-it-7Yt"; */
+"cgf-it-7Yt.placeholder" = "سن";
+
+/* Class = "UIButton"; configuration.title = "edit image"; ObjectID = "clD-Lj-kIi"; */
+"clD-Lj-kIi.configuration.title" = "تعديل الصورة";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "clD-Lj-kIi"; */
+"clD-Lj-kIi.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Age :"; ObjectID = "eXb-WG-g6B"; */
+"eXb-WG-g6B.text" = "سن :";
+
+/* Class = "UILabel"; text = "LastName :"; ObjectID = "ehM-e5-Y3s"; */
+"ehM-e5-Y3s.text" = "اللقب :";
+
+/* Class = "UILabel"; text = "Sign Up"; ObjectID = "gBA-ia-sCW"; */
+"gBA-ia-sCW.text" = "اشتراك";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gbU-Ue-HF5"; */
+"gbU-Ue-HF5.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "geF-Zk-E0e"; */
+"geF-Zk-E0e.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Prix "; ObjectID = "ggR-pz-FCS"; */
+"ggR-pz-FCS.placeholder" = "سعر ";
+
+/* Class = "UIButton"; configuration.title = "Sign up"; ObjectID = "igw-zf-oWC"; */
+"igw-zf-oWC.configuration.title" = "اشتراك";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "igw-zf-oWC"; */
+"igw-zf-oWC.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Change Password"; ObjectID = "jFg-hz-LO7"; */
+"jFg-hz-LO7.text" = "غير كلمة السر";
+
+/* Class = "UITextField"; placeholder = "Email Adress"; ObjectID = "jZe-NQ-upd"; */
+"jZe-NQ-upd.placeholder" = "عنوان البريد الالكترونى";
+
+/* Class = "UITextField"; placeholder = "FullName"; ObjectID = "k9I-cT-5qM"; */
+"k9I-cT-5qM.placeholder" = "الاسم الكامل";
+
+/* Class = "UILabel"; text = "Log In"; ObjectID = "mG7-ga-BKM"; */
+"mG7-ga-BKM.text" = "تسجيل الدخول";
+
+/* Class = "UIButton"; configuration.title = "Google"; ObjectID = "my0-C3-gfo"; */
+"my0-C3-gfo.configuration.title" = "Google";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "my0-C3-gfo"; */
+"my0-C3-gfo.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "oYj-Fg-OkY"; */
+"oYj-Fg-OkY.placeholder" = "عنوان البريد الالكترونى";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ojc-hw-jhI"; */
+"ojc-hw-jhI.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "Verifier"; ObjectID = "omQ-f8-YNW"; */
+"omQ-f8-YNW.configuration.title" = "يفحص";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "omQ-f8-YNW"; */
+"omQ-f8-YNW.normalTitle" = "Button";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "ozq-ll-OeI"; */
+"ozq-ll-OeI.placeholder" = "كلمة المرور";
+
+/* Class = "UITextField"; placeholder = "Type Produit"; ObjectID = "pIe-aR-u2M"; */
+"pIe-aR-u2M.placeholder" = "المنتج";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pNU-Xf-rNy"; */
+"pNU-Xf-rNy.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "select"; ObjectID = "pUW-MF-s7C"; */
+"pUW-MF-s7C.configuration.title" = "
+تحديد";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "pUW-MF-s7C"; */
+"pUW-MF-s7C.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Login"; ObjectID = "q04-Pn-tCo"; */
+"q04-Pn-tCo.configuration.title" = "تسجيل الدخول";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "q04-Pn-tCo"; */
+"q04-Pn-tCo.normalTitle" = "Button";
+
+/* Class = "UIButton"; configuration.title = "Add"; ObjectID = "qEl-eb-XIt"; */
+"qEl-eb-XIt.configuration.title" = "يضيف";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qEl-eb-XIt"; */
+"qEl-eb-XIt.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rHC-HV-jNT"; */
+"rHC-HV-jNT.text" = "Label";
+
+/* Class = "UIButton"; configuration.title = "upload"; ObjectID = "rcz-9h-8Xw"; */
+"rcz-9h-8Xw.configuration.title" = "تحميل";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "rcz-9h-8Xw"; */
+"rcz-9h-8Xw.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tiB-Pd-teL"; */
+"tiB-Pd-teL.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "Adresse"; ObjectID = "uLA-pr-B7H"; */
+"uLA-pr-B7H.placeholder" = "العنوان";
+
+/* Class = "UILabel"; text = "Promotion"; ObjectID = "w0Y-5G-bFK"; */
+"w0Y-5G-bFK.text" = "Promotion";
+
+/* Class = "UITextField"; placeholder = "FirstName"; ObjectID = "wlR-FS-rK0"; */
+"wlR-FS-rK0.placeholder" = "الاسم الاول";
+
+/* Class = "UITextField"; placeholder = "Secteur"; ObjectID = "wuS-Yi-fwh"; */
+"wuS-Yi-fwh.placeholder" = "قطاع";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "xQy-RD-jwZ"; */
+"xQy-RD-jwZ.placeholder" = "البريد الالكترونى";
+
+/* Class = "UITextField"; placeholder = "LastName"; ObjectID = "xzy-1g-2gg"; */
+"xzy-1g-2gg.placeholder" = "اللقب";
+
+/* Class = "UIButton"; configuration.title = "Edit Profil"; ObjectID = "zFN-k8-KBt"; */
+"zFN-k8-KBt.configuration.title" = "تعديل الملف الشخصي";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "zFN-k8-KBt"; */
+"zFN-k8-KBt.normalTitle" = "Button";

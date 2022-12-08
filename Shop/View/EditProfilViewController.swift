@@ -10,7 +10,8 @@ import CoreData
 import Alamofire
 
 extension UIImageView {
-    func downloaded(url: URL){
+    func downloaded(url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill){
+        contentMode = mode
        
         URLSession.shared.dataTask(with: url) { data, response, error in
 guard
@@ -20,13 +21,15 @@ guard
     let image = UIImage(data: data)
             else{ return }
             DispatchQueue.main.async {
+                
                 self.image = image
             }
         }.resume()
     }
     func downloaded(link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit){
         guard let url = URL(string: link) else { return }
-        downloaded(url: url)
+        print(url)
+        downloaded(url: url, contentMode: mode)
     }
 }
 
@@ -45,7 +48,7 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var profileImageView: UIImageView!
     
    
-    fileprivate let baseURL = "http://172.17.2.174:2500"
+    fileprivate let baseURL = "http://172.17.4.53:2500"
     var imagePicker = UIImagePickerController()
     var networkService = NetworkService()
     var returnedAvatar:String="default"
@@ -59,14 +62,17 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
                                                     #selector(imageTapped(tapGestureRecognizer: )))
       
         imgprofil.addGestureRecognizer(tapgesture)*/
-        imgProfile.backgroundColor = .cyan
+      //  imgProfile.backgroundColor = .cyan
         imgProfile.layer.masksToBounds = true
         imgProfile.layer.cornerRadius = imgProfile.frame.height / 2
         
         getConnectedUser()
         setupUser()
         
-       
+        let completeLink = connectedUser.photo
+        print(completeLink)
+          imgProfile.downloaded(link: completeLink!)
+        print(completeLink)
         
     }
     
@@ -87,8 +93,15 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
         editEmailTxt.text = connectedUser.email
         editAgeTxt.text = connectedUser.age
         let completeLink = connectedUser.photo
+        print(completeLink)
           imgProfile.downloaded(link: completeLink!)
         print(completeLink)
+        
+        
+        
+        
+        
+        
         
     }
     
@@ -169,14 +182,14 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
                        multiPart.append(keyData, withName: key)
                    }
                }
-       }, to: "http://172.17.2.174:2500/users/updatephoto/\(connectedUser.id!)",headers: []).responseJSON { apiResponse in
+       }, to: "http://172.17.4.53:2500/users/updatephoto/\(connectedUser.id!)",headers: []).responseJSON { apiResponse in
            
            switch apiResponse.result{
            case .success(_):
                let apiDictionary = apiResponse.value as? [String:Any]
                print("apiResponse --- \(apiDictionary)")
                print("ajout avec succes")
-               print ( "http://172.17.3.173:2500/users/updatephoto/\(self.connectedUser.id!)")
+               print ( "http://172.17.4.53:2500/users/updatephoto/\(self.connectedUser.id!)")
 
            case .failure(_):
                print("got an error")
@@ -373,7 +386,7 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
                 self.connectedUser.lastName=(obj.value(forKey: "lastName") as! String)
                 self.connectedUser.email=(obj.value(forKey: "email") as! String)
                 self.connectedUser.age=(obj.value(forKey: "age") as! String)
-             //   self.connectedUser.photo=(obj.value(forKey: "photo") as! String)
+                self.connectedUser.photo=(obj.value(forKey: "photo") as! String)
 
                
             }

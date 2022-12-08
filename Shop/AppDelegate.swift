@@ -9,9 +9,10 @@ import UIKit
 import CoreData
 import FBSDKCoreKit
 import GoogleSignIn
+import MOLH
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, MOLHResetable {
+ 
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,10 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     didFinishLaunchingWithOptions: launchOptions
                 )
         // Override point for customization after application launch.
-        
+        MOLH.shared.activate(true)
        
         return true
     }
+    func reset() {
+        let rootviewcontroller: UIWindow = ((UIApplication.shared.delegate?.window)!)!
+        let stry = UIStoryboard(name: "Main", bundle: nil)
+        rootviewcontroller.rootViewController = stry.instantiateViewController(withIdentifier: "page1")
+    }
+    
+
     
     func application(
             _ app: UIApplication,

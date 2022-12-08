@@ -14,7 +14,7 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var NumTelTxt: UITextField!
     @IBOutlet weak var FullNameTxt: UITextField!
     
-    fileprivate let baseURL = "http://172.17.2.174:2500/"
+    fileprivate let baseURL = "http://172.17.4.53:2500/"
     public var SuccessMessage:Message = Message(message: "")
     
     override func viewDidLoad() {
@@ -40,26 +40,26 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
         let fullname = FullNameTxt.text
         if fullname == "" {
              print("fullnme empty")
-             let alert = UIAlertController(title: "FullName field is empty", message: "please fill your inputs", preferredStyle: .alert)
-             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            let alert = UIAlertController(title: "FullName field is empty".localizedFournisseur, message: "please fill your inputs".localizedFournisseur, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localizedFournisseur, style: .default, handler: nil))
              self.present(alert, animated: true)
          }
       else  if numtel == "" {
              print("fullnme empty")
-             let alert = UIAlertController(title: "Num Télephone field is empty", message: "please fill your inputs", preferredStyle: .alert)
-             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+          let alert = UIAlertController(title: "Num Télephone field is empty".localizedFournisseur, message: "please fill your inputs".localizedFournisseur, preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "ok".localizedFournisseur, style: .default, handler: nil))
              self.present(alert, animated: true)
          }
        else if adresse == "" {
              print("fullnme empty")
-             let alert = UIAlertController(title: "Adresse field is empty", message: "please fill your inputs", preferredStyle: .alert)
-             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+           let alert = UIAlertController(title: "Adresse field is empty".localizedFournisseur, message: "please fill your inputs".localizedFournisseur, preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "ok".localizedFournisseur, style: .default, handler: nil))
              self.present(alert, animated: true)
          }
         else if secteur == "" {
               print("fullnme empty")
-              let alert = UIAlertController(title: "Secteur field is empty", message: "please fill your inputs", preferredStyle: .alert)
-              alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            let alert = UIAlertController(title: "Secteur field is empty".localizedFournisseur, message: "please fill your inputs".localizedFournisseur, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localizedFournisseur, style: .default, handler: nil))
               self.present(alert, animated: true)
           }
 
@@ -105,4 +105,11 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+}
+
+
+extension String {
+    var localizedFournisseur: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }

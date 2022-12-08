@@ -19,7 +19,7 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
       var code :String?
       var Lastcode :String?
       var Email :String?
-      fileprivate let baseURLRender = "http://172.17.2.174:2500/"
+      fileprivate let baseURLRender = "http://172.17.4.53:2500/"
     
     override func viewDidLoad() {
         super.viewDidLoad()

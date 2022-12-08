@@ -57,7 +57,7 @@ class EditProduitViewController: UIViewController, UIImagePickerControllerDelega
                    }
                }
            multiPart.append(imgData, withName: "image",fileName: imageName,mimeType: "image/*")
-       }, to: "http://172.17.2.174:2500/stocks/addStock",headers: []).responseJSON { apiResponse in
+       }, to: "http://172.17.4.53:2500/stocks/addStock",headers: []).responseJSON { apiResponse in
            
            switch apiResponse.result{
            case .success(_):

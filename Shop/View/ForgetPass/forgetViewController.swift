@@ -10,7 +10,7 @@ import UIKit
 class forgetViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var forgettxt: UITextField!
-    fileprivate let baseURLRender = "http://172.17.2.174:2500/"
+    fileprivate let baseURLRender = "http://172.17.4.53:2500/"
         public var codecode:code = code( code: "")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +24,7 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    @IBAction func btnRetourToLogin(_ sender: Any) {
-        
-        self.performSegue(withIdentifier: "retourLogin", sender: sender)
-    }
+  
     
     
 

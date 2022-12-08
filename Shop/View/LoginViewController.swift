@@ -12,7 +12,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     public var connectedUser: User = User(id: "", email: "", password: "", firstName: "", lastName: "", gender: "" , age: "", photo: "", code: "",codeAdmin: "")
     public var responseError:ErrorMessage = ErrorMessage( error: "")
-    fileprivate let baseURL = "http://172.17.2.174:2500"
+    fileprivate let baseURL = "http://172.17.4.53:2500"
     
     
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -84,13 +84,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
                if emailValue == "" {
                     print("email empty")
-                    let alert = UIAlertController(title: "email field is empty", message: "please fill your inputs", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                   let alert = UIAlertController(title: "email field is empty".localized, message:  "please fill your inputs".localized, preferredStyle: .alert)
+                   alert.addAction(UIAlertAction(title: "Ok".localized , style: .default, handler: nil))
                     self.present(alert, animated: true)
                 }else if passwordValue == "" {
                     print("password empty")
-                    let alert = UIAlertController(title: "password field is empty", message: "please fill your inputs", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    let alert = UIAlertController(title: NSLocalizedString( "password field is empty".localized, comment: ""), message: NSLocalizedString( "please fill your inputs".localized, comment: ""), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Ok".localized, comment: ""), style: .default, handler: nil))
                     self.present(alert, animated: true)
                 }else{
          
@@ -130,8 +130,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                                 
                               if status == 422 {
                                 print("error=======")
-                                    let alert = UIAlertController(title: "Incorrect password OR Email", message: "check your inputs", preferredStyle: .alert)
-                                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                                  let alert = UIAlertController(title: "Incorrect password OR Email".localized, message: "check your inputs".localized, preferredStyle: .alert)
+                                  alert.addAction(UIAlertAction(title: "Ok".localized, style: .default, handler: nil))
                                     self.present(alert, animated: true)
                                 }else if status == 200 {
                                     
@@ -196,3 +196,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 }
 
 
+extension String {
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
+}
