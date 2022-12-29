@@ -29,3 +29,8 @@
 "Num Télephone field is empty" = "حقل رقم الهاتف فارغ";
 "Adresse field is empty" = "حقل العنوان فارغ";
 "Secteur field is empty" = "حقل القطاع فارغ";
+"code incorrect" = "الرمز غير صحيح";
+"please enter all fields" = "الرجاء إدخال كافة الحقول";
+"Incorrect" = "غير صحيح";
+"Password is not the same" = "كلمة المرور ليست هي نفسها";
+"field is empty" = "الحقل فارغ";

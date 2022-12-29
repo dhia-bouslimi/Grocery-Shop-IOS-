@@ -8,6 +8,7 @@
 import UIKit
 
 class Forget2ViewController: UIViewController, UITextFieldDelegate {
+    
     @IBOutlet weak var code1: UITextField!
     @IBOutlet weak var code2: UITextField!
     @IBOutlet weak var code3: UITextField!
@@ -19,7 +20,7 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
       var code :String?
       var Lastcode :String?
       var Email :String?
-      fileprivate let baseURLRender = "http://172.17.4.53:2500/"
+      fileprivate let baseURLRender = "http://172.17.1.175:2500/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,18 +29,16 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
         code3.delegate = self
         code4.delegate = self        // Do any additional setup after loading the view.
         
-           let preferences = UserDefaults.standard
+        let preferences = UserDefaults.standard
 
-           let currentLevelKey = "currentLevel"
-           if preferences.object(forKey: currentLevelKey) == nil {
-               //  Doesn't exist
-           } else {
-               let currentLevel = preferences.string(forKey: currentLevelKey)
-               print(currentLevel)
-               Lastcode =  currentLevel
-               print(Email)
-           }
-
+              let currentLevelKey = "currentLevel"
+              if preferences.object(forKey: currentLevelKey) == nil {
+                  //  Doesn't exist
+              } else {
+                  let currentLevel = preferences.integer(forKey: currentLevelKey)
+                  print("shih " , currentLevel)
+                  Lastcode =  "\(currentLevel)"
+              }
        }
        
        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -62,6 +61,18 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
            }
            return true;
          }
+    
+    
+    
+    
+    @IBAction func btnRetour(_ sender: Any) {
+        
+        
+         performSegue(withIdentifier: "forget2Toforget1", sender: sender)
+    }
+    
+    
+    
        
     @IBAction func goToForget3(_ sender: Any) {
         
@@ -83,8 +94,8 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
         // print("codetyped "+ codetyped! )
          if(codetyped  == "")
          {
-             let alert = UIAlertController(title: " field is empty", message: "please fill your inputs", preferredStyle: .alert)
-             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+             let alert = UIAlertController(title: " field is empty".localizedForget1, message: "please fill your inputs".localizedForget1, preferredStyle: .alert)
+             alert.addAction(UIAlertAction(title: "ok".localizedForget1, style: .default, handler: nil))
              self.present(alert, animated: true)
              
          }
@@ -95,8 +106,8 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
 
   }
         else if (Lastcode != codetyped){
-            let alert = UIAlertController(title: " code incorrect", message: "please fill your inputs", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            let alert = UIAlertController(title: " code incorrect".localizedForget1, message: "please fill your inputs".localizedForget1, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localizedForget1, style: .default, handler: nil))
             self.present(alert, animated: true)
         }
          
@@ -113,4 +124,10 @@ class Forget2ViewController: UIViewController, UITextFieldDelegate {
      
  }
     
+}
+
+extension String {
+    var localizedForget1: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }

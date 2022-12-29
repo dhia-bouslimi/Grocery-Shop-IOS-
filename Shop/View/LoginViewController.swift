@@ -12,7 +12,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     public var connectedUser: User = User(id: "", email: "", password: "", firstName: "", lastName: "", gender: "" , age: "", photo: "", code: "",codeAdmin: "")
     public var responseError:ErrorMessage = ErrorMessage( error: "")
-    fileprivate let baseURL = "http://172.17.4.53:2500"
+    fileprivate let baseURL = "http://172.17.1.175:2500"
     
     
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -153,6 +153,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func btnforgetpassword(_ sender: Any) {
+        self.performSegue(withIdentifier: "loginToforget1", sender: sender)
         
     }
     

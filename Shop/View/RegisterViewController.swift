@@ -16,7 +16,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var Emailtxt: UITextField!
     @IBOutlet weak var userNametxt: UITextField!
     
-    fileprivate let baseURL = "http://172.17.4.53:2500/"
+    fileprivate let baseURL = "http://172.17.1.175:2500/"
     public var SuccessMessage:Message = Message(message: "")
     
     override func viewDidLoad() {

@@ -27,11 +27,19 @@ class ProfilViewController: UIViewController {
     
    
     @IBAction func darkModebtn(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 0 {
-            overrideUserInterfaceStyle = .light
-        } else {
-            overrideUserInterfaceStyle = .dark
+        
+        if #available(iOS 13.0, *) {
+             let appDelegate = UIApplication.shared.windows.first
+            if sender.selectedSegmentIndex == 0 {
+                appDelegate?.overrideUserInterfaceStyle = .light
+                return
+                  
+                 }
+            appDelegate?.overrideUserInterfaceStyle = .dark
+              return
         }
+        
+        
     }
     
 

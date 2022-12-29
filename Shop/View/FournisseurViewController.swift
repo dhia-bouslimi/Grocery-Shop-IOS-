@@ -9,12 +9,13 @@ import UIKit
 
 class FournisseurViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var QRimage: UIImageView!
     @IBOutlet weak var SecteurTxt: UITextField!
     @IBOutlet weak var AdresseTxt: UITextField!
     @IBOutlet weak var NumTelTxt: UITextField!
     @IBOutlet weak var FullNameTxt: UITextField!
     
-    fileprivate let baseURL = "http://172.17.4.53:2500/"
+    fileprivate let baseURL = "http://172.17.1.175:2500/"
     public var SuccessMessage:Message = Message(message: "")
     
     override func viewDidLoad() {
@@ -23,7 +24,7 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
         NumTelTxt.delegate = self
         AdresseTxt.delegate = self
         SecteurTxt.delegate = self
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -32,12 +33,31 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
     }
     
 
-   
+    
+    
+    func screenShotMethod(){
+        let layer = UIApplication.shared.keyWindow!.layer
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, scale)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        let screenshot = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        UIImageWriteToSavedPhotosAlbum(screenshot!, nil, nil, nil)
+        
+    }
+    
+    
+    
     @IBAction func AddBtn(_ sender: Any) {
         let numtel = NumTelTxt.text
         let adresse = AdresseTxt.text
         let secteur = SecteurTxt.text
         let fullname = FullNameTxt.text
+        
+        
+        
+        
+        
         if fullname == "" {
              print("fullnme empty")
             let alert = UIAlertController(title: "FullName field is empty".localizedFournisseur, message: "please fill your inputs".localizedFournisseur, preferredStyle: .alert)
@@ -62,10 +82,13 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(UIAlertAction(title: "ok".localizedFournisseur, style: .default, handler: nil))
               self.present(alert, animated: true)
           }
-
+       
         
      else if(FullNameTxt.text != "" && NumTelTxt.text != "" && AdresseTxt.text != "" && SecteurTxt.text != "" )
         {
+         
+   
+
             
             let parameters = ["fullName" : FullNameTxt.text! ,"adresse" : AdresseTxt.text! , "numTel" : NumTelTxt.text! , "secteur" : SecteurTxt.text! ]  as [String:Any]
             
@@ -92,7 +115,7 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
                            // self.performSegue(withIdentifier: "SignupToLogin", sender: sender)
                           //  self.performSegue(withIdentifier: "signupToProfil", sender: self)
                             print("ok")
-                           self.performSegue(withIdentifier: "vendorToList", sender: sender)
+                         //  self.performSegue(withIdentifier: "vendorToList", sender: sender)
                         }
                         
                     }
@@ -100,7 +123,22 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
                 
 
             }.resume()
+         if let myString = NumTelTxt.text {
+             let data = myString.data(using: .ascii, allowLossyConversion: false)
+             let filter = CIFilter(name: "CIQRCodeGenerator")
+             filter?.setValue(data, forKey: "InputMessage")
+             let ciImage = filter?.outputImage
+             let transform =     CGAffineTransform(scaleX: 10, y: 10)
+             let transformImage = ciImage?.transformed(by: transform)
+             let image = UIImage(ciImage: transformImage!)
+             QRimage.image = image
+             
+         }
+         screenShotMethod();
             }
+        
+        
+        
         
         
     }

@@ -23,7 +23,13 @@ class ViewController: UIViewController {
         MOLH.reset()
         language.setTitle("languageBtn".localize, for: .normal)
         startedBtn.setTitle("btnstarted".localize, for: .normal)
- 
+        if(MOLHLanguage.currentAppleLanguage() == "en"){
+            UIView.appearance().semanticContentAttribute = .forceLeftToRight
+        }
+        else {
+            UIView.appearance().semanticContentAttribute = .forceRightToLeft
+        }
+   
     }
     
     @IBAction func btnstarted(_ sender: Any) {

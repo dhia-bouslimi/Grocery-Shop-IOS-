@@ -28,3 +28,8 @@
 "Num Télephone field is empty" = "Num Télephone field is empty";
 "Adresse field is empty" =  "Adresse field is empty";
 "Secteur field is empty" = "Secteur field is empty";
+"code incorrect" = "code incorrect";
+"please enter all fields" = "please enter all fields";
+"Incorrect" = "Incorrect";
+"Password is not the same" = "Password is not the same";
+"field is empty" = "field is empty";

@@ -16,14 +16,14 @@ struct jsonstruct: Decodable {
 }
 class ListFournisseurViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-   
+    fileprivate let application = UIApplication.shared
     
     @IBOutlet weak var searchbar: UISearchBar!
     var arrdata = [jsonstruct]()
     var searchedProduit = [jsonstruct]()
      var searching = false
 
-    fileprivate let baseURL = "http://172.17.4.53:2500"
+    fileprivate let baseURL = "http://172.17.1.175:2500"
  
     
     let fournisseur = ["ahmed", "ali", "aymen"]
@@ -72,6 +72,29 @@ class ListFournisseurViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     
+    
+ 
+    @IBAction func btnPhone(_ sender: UIButton) {
+        let pointt = (sender as AnyObject).convert(CGPoint.zero, to:tableview)
+        
+               guard let indexpath = tableview.indexPathForRow(at: pointt) else { return }
+        let number = arrdata[indexpath.row].numTel
+        if let PhoneURL = URL(string: "tel://\(number)" ){
+            if application.canOpenURL(PhoneURL){
+                application.open(PhoneURL, options: [:], completionHandler: nil)
+                print(PhoneURL)
+            }
+            else {
+                // alert
+            }
+         
+        }
+        
+       
+    }
+    
+    
+    
     @IBAction func deletebtn(_ sender: Any) {
         let point = (sender as AnyObject).convert(CGPoint.zero, to:tableview)
                guard let indexpath = tableview.indexPathForRow(at: point) else { return }
@@ -88,7 +111,7 @@ class ListFournisseurViewController: UIViewController, UITableViewDelegate, UITa
     
     func DeleteFournisseur (fullName : String,onSuccess: @escaping () -> Void ,onFailure: @escaping (_ errorMessage: String) -> Void ) {
           
-           AF.request("http://172.17.4.53:2500/fournisseurs/deletefournisseur/\(fullName)", method: .delete,
+           AF.request("http://172.17.1.175:2500/fournisseurs/deletefournisseur/\(fullName)", method: .delete,
                       
                       encoding: JSONEncoding.prettyPrinted)
           

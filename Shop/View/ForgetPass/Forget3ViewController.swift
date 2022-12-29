@@ -13,7 +13,7 @@ class Forget3ViewController: UIViewController {
     @IBOutlet weak var confirmpass: UITextField!
     var Email :String?
     var Lastcode :String?
-    fileprivate let baseURLRender = "http://172.17.4.53:2500/"
+    fileprivate let baseURLRender = "http://172.17.1.175:2500/"
     public var SuccessMessage:Message = Message(message: "")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +35,16 @@ class Forget3ViewController: UIViewController {
 
     @IBAction func GotoLogin(_ sender: Any) {
         
-        
-        if(newpass.text != confirmpass.text)
+        if(newpass.text == "" && confirmpass.text == "") {
+            let alert = UIAlertController(title: "fields is empty".localizedForget2, message: "please enter all fields".localizedForget2, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok".localizedForget2, style: .default, handler: nil))
+                  self.present(alert, animated: true)
+                  
+              }
+       else if(newpass.text != confirmpass.text)
           {
-              let alert = UIAlertController(title: "Incorrect", message: "Password is not the same", preferredStyle: .alert)
-              alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+           let alert = UIAlertController(title: "Incorrect".localizedForget2, message: "Password is not the same".localizedForget2, preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "ok".localizedForget2, style: .default, handler: nil))
               self.present(alert, animated: true)
           }
           else
@@ -79,4 +84,10 @@ class Forget3ViewController: UIViewController {
           }
       }
     
+}
+
+extension String {
+    var localizedForget2: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }

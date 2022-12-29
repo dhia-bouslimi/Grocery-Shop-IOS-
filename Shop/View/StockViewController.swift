@@ -53,7 +53,7 @@ class StockViewController: UIViewController, UICollectionViewDataSource, UIColle
        
         collectionview.delegate = self
         collectionview.dataSource = self
-        let url = URL(string: "http://172.17.4.53:2500/stocks/stock")
+        let url = URL(string: "http://172.17.1.175:2500/stocks/stock")
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error == nil {
                 do { 
@@ -78,7 +78,7 @@ class StockViewController: UIViewController, UICollectionViewDataSource, UIColle
     
     func DeleteStock (type : String,onSuccess: @escaping () -> Void ,onFailure: @escaping (_ errorMessage: String) -> Void ) {
           
-           AF.request("http://172.17.4.53:2500/stocks/delete/\(type)", method: .delete,
+           AF.request("http://172.17.1.175:2500/stocks/delete/\(type)", method: .delete,
                       
                       encoding: JSONEncoding.prettyPrinted)
           

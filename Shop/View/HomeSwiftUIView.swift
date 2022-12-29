@@ -8,8 +8,8 @@
 import SwiftUI
 import UIKit
 
-let getUrl = "http://172.17.4.53:2500/promotions/promotion"
-let promoUrl = "http://172.17.4.53:2500/promotions/addpromotion"
+let getUrl = "http://172.17.1.175:2500/promotions/promotion"
+let promoUrl = "http://172.17.1.175:2500/promotions/addpromotion"
 
 struct Promo: Codable {
     let id, prixPromo: String
@@ -138,11 +138,11 @@ struct HomeSwiftUIView: View {
                                 ForEach (viewPromo.items, id: \.id) { item in
                                     HStack {
                                         
-                                        
+                                        Spacer()
                                         Text(item.prixPromo)
                                             .font(.system(size: 14, weight:  .heavy))
-                                            .padding(.vertical, 6)
-                                            .padding(.horizontal, 12)
+                                            .padding(.vertical, 10)
+                                            .padding(.horizontal, 16)
                                             .background(Color.green)
                                             .foregroundColor(.white)
                                             .cornerRadius(10)
@@ -165,7 +165,7 @@ struct HomeSwiftUIView: View {
                                     }.foregroundColor(.white)
                                         .padding()
                                         .background(Color.gray)
-                                        .clipShape(RoundedRectangle(cornerRadius: 80.0))
+                                        .clipShape(RoundedRectangle(cornerRadius: 70.0))
                                     
                                     
                                 }
@@ -266,9 +266,9 @@ struct HomeSwiftUIView: View {
         
         func makeBody(configuration: Configuration) -> some View {
             configuration.label
-            Circle().fill(Color.white).frame(width: 75, height: 75)
-                .shadow(radius: 10)
-                .overlay(Image(systemName: "pencil.circle.fill").font(.largeTitle)).foregroundColor(Color.blue)
+            Circle().fill(Color.gray).frame(width: 40, height: 40)
+                .shadow(radius: 20)
+                .overlay(Image(systemName: "pencil.circle.fill").font(.largeTitle)).foregroundColor(Color.green)
         }
     }
     

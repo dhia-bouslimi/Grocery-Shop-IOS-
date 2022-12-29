@@ -8,9 +8,10 @@
 import UIKit
 
 class forgetViewController: UIViewController, UITextFieldDelegate {
+    public var connectedUser: User = User(id: "", email: "", password: "", firstName: "", lastName: "", gender: "" , age: "", photo: "", code: "")
 
     @IBOutlet weak var forgettxt: UITextField!
-    fileprivate let baseURLRender = "http://172.17.4.53:2500/"
+    fileprivate let baseURLRender = "http://172.17.1.175:2500/"
         public var codecode:code = code( code: "")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +24,11 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
   
+  
+    @IBAction func btnretour(_ sender: Any) {
+        self.performSegue(withIdentifier: "retourLogin", sender: sender)
+    }
     
     
 
@@ -32,8 +36,8 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
         // create the alert
         if(forgettxt.text == "")
              {
-                 let alert = UIAlertController(title: " field is empty", message: "please fill your inputs", preferredStyle: .alert)
-                 alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            let alert = UIAlertController(title: " field is empty".localizedForget, message: "please fill your inputs".localizedForget, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "ok".localizedForget, style: .default, handler: nil))
                  self.present(alert, animated: true)
                  
              }
@@ -87,4 +91,9 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
 
 }
     
+}
+extension String {
+    var localizedForget: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }

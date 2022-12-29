@@ -46,6 +46,14 @@ class DetailFournisseurViewController: UIViewController {
     }
     
     
+    @IBAction func btnPhone(_ sender: Any) {
+    }
+    
+    
+    
+    
+    
+    
   /*  @IBAction func deleteBtn(_ sender: Any) {
         
         let parameters = [ "fullName" : fullName ] as! [String:Any]
