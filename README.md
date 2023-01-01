@@ -69,6 +69,7 @@ B. GRAPHISME ET ERGONOMIE :
 
 B. 1. LA CHARTE GRAPHIQUE :
 Palette des couleurs :
+
 ![dd](https://user-images.githubusercontent.com/64777337/210187514-31d2376f-e2f7-46f6-9f3f-e16a9b6a282d.png)
 
 ![dddddd](https://user-images.githubusercontent.com/64777337/210187525-b5aa7af9-ae73-4065-9fa0-c724584a1b08.png)
