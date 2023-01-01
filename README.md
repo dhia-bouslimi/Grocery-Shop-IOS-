@@ -70,10 +70,13 @@ B. GRAPHISME ET ERGONOMIE :
 B. 1. LA CHARTE GRAPHIQUE :
 Palette des couleurs :
 
+![ZZZZ](https://user-images.githubusercontent.com/64777337/210187442-5269056c-4c1d-4c31-a7ab-b716e7e9c40d.png)
+![ZZ](https://user-images.githubusercontent.com/64777337/210187447-90db1407-4c19-44f2-b4d3-68351a88072f.png)
+
+![ZZZZZ](https://user-images.githubusercontent.com/64777337/210187451-25dc14de-6eaf-41a2-a56c-e4dee14e2004.png)
 
 
-![Capture d'écran_20221106_125652](https://user-images.githubusercontent.com/64777337/200170622-54c3265d-87ef-4690-933d-103e8e199f7c.png)
-![Capture d'écran_20221106_125702](https://user-images.githubusercontent.com/64777337/200170627-ff738c94-a685-4aa4-b83d-4b858ac4935b.png)
+![ZZDZC](https://user-images.githubusercontent.com/64777337/210187452-7ecf6d01-a392-4352-aa13-7d0299dd9e22.png)
 
 B. 2. LE LOGO :
 
@@ -86,8 +89,8 @@ B. 2. LE LOGO :
 
 
 Lien Maquette (figma) :
-
-https://www.figma.com/file/x3rsJA9jfTWNymWg0FBRxP/Maquette?node-id=42%3A3
+[
+https://www.figma.com/file/x3rsJA9jfTWNymWg0FBRxP/Maquette?node-id=0%3A1&t=U1qQ0NqDtL64xL69-1
 
 B. 3. DIAGRAMME DE CAS D'UTILISATION :
 
