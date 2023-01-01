@@ -69,14 +69,10 @@ B. GRAPHISME ET ERGONOMIE :
 
 B. 1. LA CHARTE GRAPHIQUE :
 Palette des couleurs :
+![dd](https://user-images.githubusercontent.com/64777337/210187514-31d2376f-e2f7-46f6-9f3f-e16a9b6a282d.png)
 
-![ZZZZ](https://user-images.githubusercontent.com/64777337/210187442-5269056c-4c1d-4c31-a7ab-b716e7e9c40d.png)
-![ZZ](https://user-images.githubusercontent.com/64777337/210187447-90db1407-4c19-44f2-b4d3-68351a88072f.png)
+![dddddd](https://user-images.githubusercontent.com/64777337/210187525-b5aa7af9-ae73-4065-9fa0-c724584a1b08.png)
 
-![ZZZZZ](https://user-images.githubusercontent.com/64777337/210187451-25dc14de-6eaf-41a2-a56c-e4dee14e2004.png)
-
-
-![ZZDZC](https://user-images.githubusercontent.com/64777337/210187452-7ecf6d01-a392-4352-aa13-7d0299dd9e22.png)
 
 B. 2. LE LOGO :
 
@@ -84,8 +80,13 @@ B. 2. LE LOGO :
 
  B. 3. LE MAQUETTAGE :
 
- ![Capture d'écran_20221101_185041](https://user-images.githubusercontent.com/64777337/199305342-00341ee6-8b0f-4810-bacc-3404598779d5.png)
- ![Capture d'écran_20221101_185106](https://user-images.githubusercontent.com/64777337/199305386-7ab5418c-e678-4f8d-8c1b-7e5c4aeae255.png)
+ ![ZZZZ](https://user-images.githubusercontent.com/64777337/210187442-5269056c-4c1d-4c31-a7ab-b716e7e9c40d.png)
+![ZZ](https://user-images.githubusercontent.com/64777337/210187447-90db1407-4c19-44f2-b4d3-68351a88072f.png)
+
+![ZZZZZ](https://user-images.githubusercontent.com/64777337/210187451-25dc14de-6eaf-41a2-a56c-e4dee14e2004.png)
+
+
+![ZZDZC](https://user-images.githubusercontent.com/64777337/210187452-7ecf6d01-a392-4352-aa13-7d0299dd9e22.png)
 
 
 Lien Maquette (figma) :
