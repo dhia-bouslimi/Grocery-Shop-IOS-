@@ -71,7 +71,7 @@ class ProfilViewController: UIViewController {
                 self.connectedUser.lastName=(obj.value(forKey: "lastName") as! String)
                 self.connectedUser.email=(obj.value(forKey: "email") as! String)
                 self.connectedUser.age=(obj.value(forKey: "age") as! String)
-               // self.connectedUser.photo=(obj.value(forKey: "photo") as! String)
+              //  self.connectedUser.photo=(obj.value(forKey: "photo") as! String)
 
                
             }
@@ -82,8 +82,7 @@ class ProfilViewController: UIViewController {
         }
     }
     
-    
-
+  
     
     
     
@@ -98,7 +97,8 @@ class ProfilViewController: UIViewController {
            defaults?.set(false, forKey: "ISRemember")
           defaults?.set("", forKey: "SavedEmail")
           defaults?.set("", forKey: "SavedPassword")
-          
+       
+        defaults?.set(false, forKey: "isLoggedIn")
           
           let appDelegate = UIApplication.shared.delegate as! AppDelegate
               

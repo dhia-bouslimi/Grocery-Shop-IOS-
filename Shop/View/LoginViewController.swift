@@ -12,7 +12,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     public var connectedUser: User = User(id: "", email: "", password: "", firstName: "", lastName: "", gender: "" , age: "", photo: "", code: "",codeAdmin: "")
     public var responseError:ErrorMessage = ErrorMessage( error: "")
-    fileprivate let baseURL = "http://172.17.1.175:2500"
+    fileprivate let baseURL = "http://172.17.1.50:2500"
     
     
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -25,7 +25,13 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         emailTxtField.delegate = self
         passwordTxtField.delegate = self
-
+        let defaults = UserDefaults.standard
+        let loggedIn = defaults.object(forKey: "isLoggedIn")
+        if ( loggedIn as? Bool == true  ) {
+            print(loggedIn)
+            print("ssadadkakdkazflmazjfoezfjnezlfj")
+            performSegue(withIdentifier: "loginToHome", sender: self)
+             }
         imageicon.image = UIImage(named: "colseeye")
         
         let contentView = UIView()
@@ -78,16 +84,18 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     
     @IBAction func btnLogin(_ sender: Any) {
+        let isEmailAddressValid = isValidEmailAddresss(emailAddressString: emailTxtField.text!)
 
         let emailValue = emailTxtField.text
                 let passwordValue = passwordTxtField.text
 
-               if emailValue == "" {
-                    print("email empty")
-                   let alert = UIAlertController(title: "email field is empty".localized, message:  "please fill your inputs".localized, preferredStyle: .alert)
-                   alert.addAction(UIAlertAction(title: "Ok".localized , style: .default, handler: nil))
-                    self.present(alert, animated: true)
-                }else if passwordValue == "" {
+        if(
+            (emailTxtField.text != nil) != isEmailAddressValid ){
+            let alert = UIAlertController(title: "Your Email IS Not Valid".localized, message: "check your inputs".localized, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok".localizedSignup, style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+        }else if passwordValue == "" {
                     print("password empty")
                     let alert = UIAlertController(title: NSLocalizedString( "password field is empty".localized, comment: ""), message: NSLocalizedString( "please fill your inputs".localized, comment: ""), preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: NSLocalizedString("Ok".localized, comment: ""), style: .default, handler: nil))
@@ -134,7 +142,8 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                                   alert.addAction(UIAlertAction(title: "Ok".localized, style: .default, handler: nil))
                                     self.present(alert, animated: true)
                                 }else if status == 200 {
-                                    
+                                    let defaults = UserDefaults.standard
+                                    defaults.set(true, forKey: "isLoggedIn")
                                     print("welcome +++"+self.connectedUser.lastName!+"+++")
                                   //  print(self.connectedUser)
                                    self.saveConnectedUser()
@@ -195,7 +204,28 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
 
 }
-
+func isValidEmailAddresss(emailAddressString: String) -> Bool {
+    
+    var returnValue = true
+    let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+    
+    do {
+        let regex = try NSRegularExpression(pattern: emailRegEx)
+        let nsString = emailAddressString as NSString
+        let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
+        
+        if results.count == 0
+        {
+            returnValue = false
+        }
+        
+    } catch let error as NSError {
+        print("invalid regex: \(error.localizedDescription)")
+        returnValue = false
+    }
+    
+    return  returnValue
+}
 
 extension String {
     var localized: String {

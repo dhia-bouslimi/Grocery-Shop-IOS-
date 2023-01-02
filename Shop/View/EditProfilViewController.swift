@@ -48,7 +48,7 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var profileImageView: UIImageView!
     
    
-    fileprivate let baseURL = "http://172.17.1.175:2500"
+    fileprivate let baseURL = "http://172.17.1.50:2500"
     var imagePicker = UIImagePickerController()
     var networkService = NetworkService()
     var returnedAvatar:String="default"
@@ -63,7 +63,7 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
       
         imgprofil.addGestureRecognizer(tapgesture)*/
         imgProfile.backgroundColor = .cyan
-        imgProfile.layer.masksToBounds = true
+       imgProfile.layer.masksToBounds = true
         imgProfile.layer.cornerRadius = imgProfile.frame.height / 2
         
         getConnectedUser()
@@ -71,8 +71,21 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
         
         let completeLink = connectedUser.photo
         print(completeLink)
-          imgProfile.downloaded(link: completeLink!)
-       
+        let imageUrl = URL(string: completeLink!)
+        let task = URLSession.shared.dataTask(with: imageUrl!) {
+            (data,response,error ) in
+            if let error = error {
+                print(error)
+                return
+            }
+            if let data = data, let image = UIImage(data:data) {
+                DispatchQueue.main.async {
+                    self.imgProfile.image = image
+                }
+            }
+             }
+        task.resume()
+        
         
     }
     
@@ -182,14 +195,14 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
                        multiPart.append(keyData, withName: key)
                    }
                }
-       }, to: "http://172.17.1.175:2500/users/updatephoto/\(connectedUser.id!)",headers: []).responseJSON { apiResponse in
+       }, to: "http://172.17.1.50:2500/users/updatephoto/\(connectedUser.id!)",headers: []).responseJSON { apiResponse in
            
            switch apiResponse.result{
            case .success(_):
                let apiDictionary = apiResponse.value as? [String:Any]
                print("apiResponse --- \(apiDictionary)")
                print("ajout avec succes")
-               print ( "http://172.17.1.175:2500/users/updatephoto/\(self.connectedUser.id!)")
+               print ( "http://172.17.1.50:2500/users/updatephoto/\(self.connectedUser.id!)")
 
            case .failure(_):
                print("got an error")
@@ -386,9 +399,13 @@ class EditProfilViewController: UIViewController, UIImagePickerControllerDelegat
                 self.connectedUser.lastName=(obj.value(forKey: "lastName") as! String)
                 self.connectedUser.email=(obj.value(forKey: "email") as! String)
                 self.connectedUser.age=(obj.value(forKey: "age") as! String)
-                self.connectedUser.photo = ( "http://172.17.1.175:2500/uploads/1670516801418chichi.jpg" as! String)
+                self.connectedUser.photo = (obj.value(forKey: "photo") as! String)
 
                
+                
+                
+                
+                
             }
             
          

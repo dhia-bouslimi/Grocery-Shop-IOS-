@@ -12,7 +12,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var language: UIButton!
     @IBOutlet weak var startedBtn: UIButton!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+       
+        
         // Do any additional setup after loading the view.
         language.setTitle("languageBtn".localize, for: .normal)
         startedBtn.setTitle("btnstarted".localize, for: .normal)

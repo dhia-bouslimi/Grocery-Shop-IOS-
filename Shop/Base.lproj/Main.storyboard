@@ -463,7 +463,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zFN-k8-KBt">
-                                <rect key="frame" x="59" y="596" width="122" height="36"/>
+                                <rect key="frame" x="16" y="596" width="175" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Edit Profil" cornerStyle="capsule">
@@ -528,7 +528,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dbx-UF-6H2">
-                                <rect key="frame" x="224" y="596" width="122" height="36"/>
+                                <rect key="frame" x="210" y="596" width="164" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Log Out" cornerStyle="capsule">
@@ -631,7 +631,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o53-7H-SQb">
-                                <rect key="frame" x="61" y="35" width="264" height="252"/>
+                                <rect key="frame" x="61" y="35" width="264" height="248"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUW-MF-s7C">
@@ -665,11 +665,12 @@
                         <outlet property="imgProfile" destination="o53-7H-SQb" id="F9m-cq-bMh"/>
                         <segue destination="79f-Kp-ztD" kind="show" identifier="editphotoToProfil" id="nHx-VE-KtU"/>
                         <segue destination="XcW-wW-r27" kind="presentation" identifier="editProfilToLogin" id="VhA-7N-gLP"/>
+                        <segue destination="79f-Kp-ztD" kind="presentation" identifier="edittoProfil" id="3Mk-DQ-Hmi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ed-YP-zgk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4876.9230769230771" y="711.61137440758296"/>
+            <point key="canvasLocation" x="5114" y="939"/>
         </scene>
         <!--Fournisseur View Controller-->
         <scene sceneID="7g7-t4-CCe">
@@ -739,7 +740,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTe-Ne-RR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9467.6923076923067" y="740.75829383886253"/>
+            <point key="canvasLocation" x="6100" y="1437"/>
         </scene>
         <!--Stock View Controller-->
         <scene sceneID="sff-ge-zv0">
@@ -822,7 +823,7 @@
                                 </cells>
                             </collectionView>
                             <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="yb0-BG-3kZ">
-                                <rect key="frame" x="14" y="95" width="276" height="44"/>
+                                <rect key="frame" x="13" y="95" width="276" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.87058823529999996" green="0.72370274329999995" blue="0.84841366510000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1119,7 +1120,7 @@
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="UQS-U9-jrR">
-                                <rect key="frame" x="12" y="62" width="316" height="44"/>
+                                <rect key="frame" x="11" y="62" width="316" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" red="0.87058823529999996" green="0.72370274329999995" blue="0.84841366510000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1507,10 +1508,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nHx-VE-KtU"/>
+        <segue reference="cJ8-sw-9pa"/>
         <segue reference="M4r-wS-Igb"/>
         <segue reference="hWw-2g-H0V"/>
         <segue reference="tAm-NA-S7b"/>
+        <segue reference="3Mk-DQ-Hmi"/>
         <segue reference="qkG-TM-GZi"/>
         <segue reference="VzY-As-FYc"/>
         <segue reference="VhA-7N-gLP"/>

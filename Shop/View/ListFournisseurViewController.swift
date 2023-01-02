@@ -23,7 +23,7 @@ class ListFournisseurViewController: UIViewController, UITableViewDelegate, UITa
     var searchedProduit = [jsonstruct]()
      var searching = false
 
-    fileprivate let baseURL = "http://172.17.1.175:2500"
+    fileprivate let baseURL = "http://172.17.1.50:2500"
  
     
     let fournisseur = ["ahmed", "ali", "aymen"]
@@ -111,7 +111,7 @@ class ListFournisseurViewController: UIViewController, UITableViewDelegate, UITa
     
     func DeleteFournisseur (fullName : String,onSuccess: @escaping () -> Void ,onFailure: @escaping (_ errorMessage: String) -> Void ) {
           
-           AF.request("http://172.17.1.175:2500/fournisseurs/deletefournisseur/\(fullName)", method: .delete,
+           AF.request("http://172.17.1.50:2500/fournisseurs/deletefournisseur/\(fullName)", method: .delete,
                       
                       encoding: JSONEncoding.prettyPrinted)
           

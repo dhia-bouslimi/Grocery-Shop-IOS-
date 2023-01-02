@@ -13,7 +13,7 @@ class Forget3ViewController: UIViewController {
     @IBOutlet weak var confirmpass: UITextField!
     var Email :String?
     var Lastcode :String?
-    fileprivate let baseURLRender = "http://172.17.1.175:2500/"
+    fileprivate let baseURLRender = "http://172.17.1.50:2500/"
     public var SuccessMessage:Message = Message(message: "")
     override func viewDidLoad() {
         super.viewDidLoad()

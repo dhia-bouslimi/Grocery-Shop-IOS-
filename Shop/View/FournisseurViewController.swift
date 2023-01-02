@@ -15,7 +15,7 @@ class FournisseurViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var NumTelTxt: UITextField!
     @IBOutlet weak var FullNameTxt: UITextField!
     
-    fileprivate let baseURL = "http://172.17.1.175:2500/"
+    fileprivate let baseURL = "http://172.17.1.50:2500/"
     public var SuccessMessage:Message = Message(message: "")
     
     override func viewDidLoad() {

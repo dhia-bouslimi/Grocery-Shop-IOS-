@@ -11,7 +11,7 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
     public var connectedUser: User = User(id: "", email: "", password: "", firstName: "", lastName: "", gender: "" , age: "", photo: "", code: "")
 
     @IBOutlet weak var forgettxt: UITextField!
-    fileprivate let baseURLRender = "http://172.17.1.175:2500/"
+    fileprivate let baseURLRender = "http://172.17.1.50:2500/"
         public var codecode:code = code( code: "")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,13 +34,15 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func btnforget(_ sender: Any) {
         // create the alert
-        if(forgettxt.text == "")
-             {
-            let alert = UIAlertController(title: " field is empty".localizedForget, message: "please fill your inputs".localizedForget, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "ok".localizedForget, style: .default, handler: nil))
-                 self.present(alert, animated: true)
-                 
-             }
+        let isEmailAddressValid = isValidEmailAddressss(emailAddressString: forgettxt.text!)
+
+        if(
+            (forgettxt.text != nil) != isEmailAddressValid ){
+            let alert = UIAlertController(title: "Your Email IS Not Valid".localizedForget, message: "check your inputs".localizedForget, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok".localizedForget, style: .default, handler: nil))
+            self.present(alert, animated: true)
+            
+        }
              else
              {
                  let parameters = ["email" : forgettxt.text! ] as [String:Any]
@@ -92,6 +94,29 @@ class forgetViewController: UIViewController, UITextFieldDelegate {
 }
     
 }
+func isValidEmailAddressss(emailAddressString: String) -> Bool {
+    
+    var returnValue = true
+    let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+    
+    do {
+        let regex = try NSRegularExpression(pattern: emailRegEx)
+        let nsString = emailAddressString as NSString
+        let results = regex.matches(in: emailAddressString, range: NSRange(location: 0, length: nsString.length))
+        
+        if results.count == 0
+        {
+            returnValue = false
+        }
+        
+    } catch let error as NSError {
+        print("invalid regex: \(error.localizedDescription)")
+        returnValue = false
+    }
+    
+    return  returnValue
+}
+
 extension String {
     var localizedForget: String {
         return NSLocalizedString(self, comment: "")
