@@ -71,9 +71,9 @@ B. 1. LA CHARTE GRAPHIQUE :
 Palette des couleurs :
 
 
+![dd](https://user-images.githubusercontent.com/64777337/210187990-ff1489aa-5593-46ef-8803-ab4e79989080.png)  ![dddddd](https://user-images.githubusercontent.com/64777337/210187993-3a3255f0-5cf3-4af4-8470-34a5e31fa83c.png)
 
-![Capture d'écran_20221106_125652](https://user-images.githubusercontent.com/64777337/200170622-54c3265d-87ef-4690-933d-103e8e199f7c.png)
-![Capture d'écran_20221106_125702](https://user-images.githubusercontent.com/64777337/200170627-ff738c94-a685-4aa4-b83d-4b858ac4935b.png)
+
 
 B. 2. LE LOGO :
 
@@ -81,13 +81,18 @@ B. 2. LE LOGO :
 
  B. 3. LE MAQUETTAGE :
 
- ![Capture d'écran_20221101_185041](https://user-images.githubusercontent.com/64777337/199305342-00341ee6-8b0f-4810-bacc-3404598779d5.png)
- ![Capture d'écran_20221101_185106](https://user-images.githubusercontent.com/64777337/199305386-7ab5418c-e678-4f8d-8c1b-7e5c4aeae255.png)
+![ZZZZ](https://user-images.githubusercontent.com/64777337/210187999-8bb6a6c7-1e66-4b40-8b57-0c0f7988e0c1.png)
+![ZZ](https://user-images.githubusercontent.com/64777337/210188003-8a380da0-6125-444c-a297-2eb9a388c769.png)
 
+![ZZZZZ](https://user-images.githubusercontent.com/64777337/210188016-c1df0758-47ee-4daa-8f38-50235b3be5e5.png)
+
+![ZZDZC](https://user-images.githubusercontent.com/64777337/210188020-4f91405c-e804-4819-a465-2c4c0c35720c.png)
 
 Lien Maquette (figma) :
 
 https://www.figma.com/file/x3rsJA9jfTWNymWg0FBRxP/Maquette?node-id=42%3A3
+
+
 
 B. 3. DIAGRAMME DE CAS D'UTILISATION :
 
